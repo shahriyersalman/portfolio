@@ -390,12 +390,27 @@ section{
   line-height: 1.6;
 }
 
+/* FIX: REALIGNMENT COMPONENT STYLING FOR CONTACT INFO */
 .contact-info p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.contact-info strong {
+  white-space: nowrap;
+  min-width: 95px;
+  display: inline-block;
+}
+
+.contact-info a, 
+.contact-info span {
+  word-break: break-all;
+  color: #CBD5E1;
+  line-height: 1.5;
 }
 
 .contact-info a {
@@ -597,9 +612,9 @@ Jashore, Khulna Division, Bangladesh
 <section id="contact">
 <h2 class="section-title animate-on-scroll">Contact Me</h2>
 <div class="card contact-info animate-on-scroll">
-<p>📧 <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com" style="color: inherit; text-decoration: none;">shahriyersalman@gmail.com</a></p>
-<p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+8801965566671</a></p>
-<p>📍 <strong>Location:</strong> Jashore, Bangladesh</p>
+<p>📧 <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com">shahriyersalman@gmail.com</a></p>
+<p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer">+8801965566671</a></p>
+<p>📍 <strong>Location:</strong> <span>Jashore, Bangladesh</span></p>
 </div>
 </section>
 
@@ -657,7 +672,6 @@ function initInteractiveStars() {
   let width = canvas.width = window.innerWidth;
   let height = canvas.height = window.innerHeight;
   
-  // Keep track of scroll tracking positions
   let lastScrollY = window.scrollY;
   let scrollVelocity = 0;
 
@@ -668,7 +682,6 @@ function initInteractiveStars() {
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    // Calculate speed and direction of the user's scroll
     scrollVelocity = currentScrollY - lastScrollY;
     lastScrollY = currentScrollY;
   }, { passive: true });
@@ -678,15 +691,14 @@ function initInteractiveStars() {
 
   class ScrollStar {
     constructor() {
-      this.reset(true); // Initial load random placement
+      this.reset(true);
     }
     
     reset(initPhase = false) {
       this.length = Math.random() * 70 + 30;
-      this.speed = Math.random() * 1.5 + 0.5; // Natural background motion speed
+      this.speed = Math.random() * 1.5 + 0.5;
       this.opacity = Math.random() * 0.4 + 0.1;
       
-      // Angle parameters (down-right at ~135 degrees)
       this.angleX = 1;
       this.angleY = 0.75;
 
@@ -694,7 +706,6 @@ function initInteractiveStars() {
         this.x = Math.random() * (width + 200) - 100;
         this.y = Math.random() * (height + 200) - 100;
       } else {
-        // Stagger spawn based on velocity direction
         if (scrollVelocity >= 0) {
           if (Math.random() > 0.5) {
             this.x = Math.random() * width;
@@ -716,14 +727,12 @@ function initInteractiveStars() {
     }
 
     update() {
-      // Base natural drifts + scroll acceleration modifiers
       const moveX = (this.speed * this.angleX) + (scrollVelocity * 0.15);
       const moveY = (this.speed * this.angleY) + (scrollVelocity * 0.12);
 
       this.x += moveX;
       this.y += moveY;
 
-      // Bound checks for boundaries depending on scrolling up or down
       if (scrollVelocity >= 0) {
         if (this.x > width + 150 || this.y > height + 150) this.reset();
       } else {
@@ -734,7 +743,6 @@ function initInteractiveStars() {
     draw() {
       ctx.beginPath();
       
-      // Dynamic trail gradient changes depending on scroll velocity vector direction
       const trailX = this.x - (this.length * this.angleX) - (scrollVelocity * 0.4);
       const trailY = this.y - (this.length * this.angleY) - (scrollVelocity * 0.3);
       
@@ -762,7 +770,6 @@ function initInteractiveStars() {
       star.draw();
     });
     
-    // Smoothly decelerate the scroll velocity back to idle state when scrolling stops
     scrollVelocity *= 0.92; 
     
     requestAnimationFrame(animate);
