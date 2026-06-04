@@ -6,11 +6,10 @@
 
 <title>Shahriyer Salman Swapno | Portfolio</title>
 
-<!-- Fonts & Premium FontAwesome Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+
 :root{
   --bg:#0F172A;
   --surface:#1E293B;
@@ -43,7 +42,7 @@ body::before{
   position:fixed;
   width:500px;
   height:500px;
-  background:rgba(59,130,246,.12);
+  background:rgba(59,130,246,.15);
   filter:blur(150px);
   top:-200px;
   right:-100px;
@@ -55,11 +54,37 @@ body::after{
   position:fixed;
   width:400px;
   height:400px;
-  background:rgba(168,85,247,.12); 
+  background:rgba(168,85,247,.15); 
   filter:blur(150px);
   bottom:-150px;
   left:-100px;
   z-index:-1;
+}
+
+/* 
+=========================================
+  EXPANDED WIDER SCROLL ANIMATION
+=========================================
+*/
+@keyframes scrollFadeInWider {
+  from {
+    opacity: 0;
+    /* Increased depth for a wider tracking sweep and added a horizontal expansion scale */
+    transform: translateY(80px) scaleX(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+    filter: blur(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: scrollFadeInWider linear both;
+  animation-timeline: view();
+  /* Widened the timeline track boundary so the effect scales and settles earlier */
+  animation-range: entry 0% cover 40%;
 }
 
 /* NAVIGATION */
@@ -100,14 +125,6 @@ nav a{
 
 nav a:hover{
   color:var(--primary);
-}
-
-/* Mobile Nav Toggle */
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  color: var(--text);
-  cursor: pointer;
 }
 
 /* HERO SECTION */
@@ -196,7 +213,6 @@ nav a:hover{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
 }
 
 .primary{
@@ -248,7 +264,7 @@ section{
   border-radius: 2px;
 }
 
-/* ABOUT SECTION SPLIT LAYOUT */
+/* ABOUT SECTION LAYOUT */
 .about-container {
   display: flex;
   align-items: center;
@@ -261,9 +277,10 @@ section{
   min-width: 300px;
 }
 
+/* About Image Box */
 .about-image {
   width: 320px;
-  height: 400px;
+  height: 420px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -307,8 +324,6 @@ section{
   border-radius:18px;
   border:1px solid rgba(255,255,255,.05);
   transition:.4s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .card:hover{
@@ -321,81 +336,19 @@ section{
   color:var(--accent);
   margin-bottom:15px;
   font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .card p {
   color: #94A3B8;
   line-height: 1.6;
-  flex-grow: 1; /* Pushes card footer contents down uniformly */
 }
-
-/* Skills/Project Tag pills */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 15px 0;
-}
-
-.tag {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--primary);
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-/* Card Button layouts */
-.card-links {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.card-btn {
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: 0.2s ease;
-}
-
-.card-btn.main {
-  background: var(--primary);
-  color: white;
-}
-.card-btn.main:hover { background: #2563EB; }
-
-.card-btn.alt {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.card-btn.alt:hover { background: rgba(255, 255, 255, 0.1); }
-
 
 .contact-info p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
-  gap: 15px;
-}
-
-.contact-info p i {
-  color: var(--primary);
-  font-size: 1.3rem;
-  width: 25px;
-  text-align: center;
+  gap: 10px;
 }
 
 .contact-info a {
@@ -421,31 +374,12 @@ footer{
     padding: 20px 5%;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
   nav ul{
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(15px);
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    gap: 35px;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  nav ul.active {
-    left: 0;
+    gap: 15px;
   }
   
   nav a {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .hero{
@@ -454,12 +388,12 @@ footer{
   }
 
   .hero-content h1{
-    font-size:2.8rem;
+    font-size:2.5rem;
   }
 
   .profile{
-    width:260px;
-    height:260px;
+    width:240px;
+    height:240px;
   }
 
   .about-container {
@@ -479,10 +413,14 @@ footer{
 }
 
 @media(max-width: 540px) {
+  nav ul {
+    display: none;
+  }
   .hero-content h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
+
 </style>
 </head>
 
@@ -491,11 +429,7 @@ footer{
 <!-- NAVIGATION -->
 <nav>
 <div class="logo">Shahriyer Salman Swapno</div>
-<div class="menu-toggle" id="mobile-menu">
-  <i class="fas fa-bars"></i>
-</div>
-<ul id="nav-list">
-<li><a href="#home">Home</a></li>
+<ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
@@ -520,13 +454,13 @@ footer{
 
 <p>
 Diploma in Electrical Engineering Technology student at Jashore Polytechnic Institute.
-Passionate about technology, AI workflows, and hardware computing structures.
+Passionate about technology, AI, and PC troubleshooting.
 </p>
 
 <div class="btns">
-<a href="mailto:shahriyersalman@gmail.com" class="btn primary"><i class="fas fa-envelope"></i> Email Me</a>
-<a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-<a href="resume.pdf" class="btn primary" download><i class="fas fa-download"></i> Download CV</a>
+<a href="mailto:shahriyersalman@gmail.com" class="btn primary">Email Me</a>
+<a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a href="resume.pdf" class="btn primary" download>Download CV</a>
 </div>
 </div>
 
@@ -534,17 +468,17 @@ Passionate about technology, AI workflows, and hardware computing structures.
 
 <!-- ABOUT SECTION -->
 <section id="about">
-<h2 class="section-title">About Me</h2>
+<h2 class="section-title animate-on-scroll">About Me</h2>
 <div class="about-container">
   
-  <div class="card about-text">
+  <div class="card about-text animate-on-scroll">
     <p>
-    I am a Diploma student in Electrical Engineering Technology at Jashore Polytechnic Institute. 
+    I am a Diploma student in Electrical Engineering Technology at Jashore Polytechnic Institute.
     I enjoy combining my core engineering knowledge with fields in computation. I love exploring AI pipelines, computer architecture, and solving complex hardware or software troubleshooting bottlenecks.
     </p>
   </div>
 
-  <div class="about-image">
+  <div class="about-image animate-on-scroll">
     <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait">
   </div>
 
@@ -553,27 +487,27 @@ Passionate about technology, AI workflows, and hardware computing structures.
 
 <!-- SKILLS SECTION -->
 <section id="skills">
-<h2 class="section-title">Skills</h2>
+<h2 class="section-title animate-on-scroll">Skills</h2>
 <div class="grid">
 
-<div class="card">
-  <h3><i class="fas fa-charging-station"></i> Electrical Engineering</h3>
-  <p>Basic engineering design concepts, circuit analysis, and practical industrial lab learning application sets.</p>
+<div class="card animate-on-scroll">
+<h3>Electrical Engineering</h3>
+<p>Basic engineering design concepts, circuit analysis, and practical industrial lab learning application sets.</p>
 </div>
 
-<div class="card">
-  <h3><i class="fas fa-tools"></i> PC Troubleshooting</h3>
-  <p>In-depth hardware diagnosis, component assemblies, operating system maintenance, and software issue resolution.</p>
+<div class="card animate-on-scroll">
+<h3>PC Troubleshooting</h3>
+<p>In-depth hardware diagnosis, component assemblies, operating system maintenance, and software issue resolution.</p>
 </div>
 
-<div class="card">
-  <h3><i class="fas fa-laptop"></i> Basic Computing</h3>
-  <p>Office efficiency tools, systems operations, shell fundamentals, and structural productivity application tools.</p>
+<div class="card animate-on-scroll">
+<h3>Basic Computing</h3>
+<p>Office efficiency tools, systems operations, shell fundamentals, and structural productivity application tools.</p>
 </div>
 
-<div class="card">
-  <h3><i class="fas fa-brain"></i> AI & Tech</h3>
-  <p>Exploring state-of-the-art consumer tools, machine generation pipelines, workflows, and modern technology frameworks.</p>
+<div class="card animate-on-scroll">
+<h3>AI & Tech</h3>
+<p>Exploring state-of-the-art consumer tools, machine generation pipelines, workflows, and modern technology frameworks.</p>
 </div>
 
 </div>
@@ -581,36 +515,17 @@ Passionate about technology, AI workflows, and hardware computing structures.
 
 <!-- PROJECTS SECTION -->
 <section id="projects">
-<h2 class="section-title">Projects</h2>
+<h2 class="section-title animate-on-scroll">Projects</h2>
 <div class="grid">
 
-<div class="card">
-  <h3><i class="fas fa-calculator"></i> Scientific Calculator</h3>
-  <p>A full-scale functional web client calculator engine built using robust semantic HTML, vanilla CSS variables, and native JavaScript computations.</p>
-  <div class="tags">
-    <span class="tag">HTML5</span>
-    <span class="tag">CSS3 Variables</span>
-    <span class="tag">Vanilla JS</span>
-  </div>
-  <div class="card-links">
-    <!-- Replace '#' with your actual project links if hosted separately -->
-    <a href="#" class="card-btn main"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    <a href="#" class="card-btn alt"><i class="fab fa-github"></i> Source</a>
-  </div>
+<div class="card animate-on-scroll">
+<h3>Scientific Calculator</h3>
+<p>A full-scale functional web client calculator engine built using robust semantic HTML, vanilla CSS variables, and native JavaScript computations.</p>
 </div>
 
-<div class="card">
-  <h3><i class="fas fa-user-tie"></i> Portfolio Website</h3>
-  <p>This dynamic responsive user environment portfolio layout, utilizing contemporary modern styling elements, glassmorphic UI rules, and fluid CSS grids.</p>
-  <div class="tags">
-    <span class="tag">HTML5</span>
-    <span class="tag">CSS Grid/Flex</span>
-    <span class="tag">Responsive UX</span>
-  </div>
-  <div class="card-links">
-    <a href="https://shahriyersalman.github.io/portfolio/" class="card-btn main"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-    <a href="https://github.com/shahriyersalman/portfolio" class="card-btn alt"><i class="fab fa-github"></i> Source</a>
-  </div>
+<div class="card animate-on-scroll">
+<h3>Portfolio Website</h3>
+<p>This dynamic responsive user environment portfolio layout, utilizing contemporary modern styling elements, glassmorphic UI rules, and fluid CSS grids.</p>
 </div>
 
 </div>
@@ -618,24 +533,24 @@ Passionate about technology, AI workflows, and hardware computing structures.
 
 <!-- EDUCATION SECTION -->
 <section id="education">
-<h2 class="section-title">Education</h2>
-<div class="card">
-  <h3><i class="fas fa-university"></i> Jashore Polytechnic Institute</h3>
-  <p style="color: var(--accent); font-weight: 500; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
-  <p>
-  5th Semester Enrollment<br>
-  Jashore, Khulna Division, Bangladesh
-  </p>
+<h2 class="section-title animate-on-scroll">Education</h2>
+<div class="card animate-on-scroll">
+<h3>Jashore Polytechnic Institute</h3>
+<p style="color: var(--accent); font-weight: 500; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
+<p>
+5th Semester Enrollment<br>
+Jashore, Khulna Division, Bangladesh
+</p>
 </div>
 </section>
 
 <!-- CONTACT SECTION -->
 <section id="contact">
-<h2 class="section-title">Contact Me</h2>
-<div class="card contact-info">
-  <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com" style="color: inherit; text-decoration: none;">shahriyersalman@gmail.com</a></p>
-  <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+8801965566671</a></p>
-  <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Jashore, Bangladesh</p>
+<h2 class="section-title animate-on-scroll">Contact Me</h2>
+<div class="card contact-info animate-on-scroll">
+<p>📧 <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com" style="color: inherit; text-decoration: none;">shahriyersalman@gmail.com</a></p>
+<p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+8801965566671</a></p>
+<p>📍 <strong>Location:</strong> Jashore, Bangladesh</p>
 </div>
 </section>
 
@@ -644,9 +559,8 @@ Passionate about technology, AI workflows, and hardware computing structures.
 &copy; 2026 Shahriyer Salman Swapno &bull; All Rights Reserved
 </footer>
 
-<!-- JAVASCRIPT TYPING EFFECT & MOBILE MENU -->
+<!-- JAVASCRIPT TYPING EFFECT -->
 <script>
-// Typing Animation
 const words = ["Electrical Engineering Student", "Tech Enthusiast", "AI Explorer"];
 let wordIdx = 0;
 let charIdx = 0;
@@ -680,31 +594,6 @@ function typeEffect(){
   }
   
   setTimeout(typeEffect, currentDelay);
-}
-
-// Mobile Responsive Navigation System
-const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.getElementById('nav-list');
-const navLinks = document.querySelectorAll('#nav-list a');
-
-if(mobileMenu && navList) {
-  mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('active');
-    // Switch between bars icon and close 'X' icon
-    const icon = mobileMenu.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-  });
-
-  // Close menu when a link is clicked
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navList.classList.remove('active');
-      const icon = mobileMenu.querySelector('i');
-      icon.classList.add('fa-bars');
-      icon.classList.remove('fa-times');
-    });
-  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
