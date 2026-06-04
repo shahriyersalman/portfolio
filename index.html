@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shahriyer Salman Swapno | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0F172A;
+  --surface:#1E293B;
+  --primary:#3B82F6;
+  --accent:#A855F7; 
+  --text:#F8FAFC;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  padding-top: 80px;
+}
+
+/* Background Glow Blobs */
+body::before{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:rgba(59,130,246,.15);
+  filter:blur(150px);
+  top:-200px;
+  right:-100px;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:rgba(168,85,247,.15); 
+  filter:blur(150px);
+  bottom:-150px;
+  left:-100px;
+  z-index:-1;
+}
+
+/* NAVIGATION */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(15,23,42,.85);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.logo{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--primary);
+}
+
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight: 500;
+  transition:.3s ease;
+}
+
+nav a:hover{
+  color:var(--primary);
+}
+
+/* HERO SECTION */
+.hero{
+  min-height:calc(100vh - 80px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:60px 8%;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.profile{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid var(--primary);
+  box-shadow:0 0 40px rgba(59,130,246,.4);
+  animation:float 4s ease-in-out infinite;
+}
+
+.profile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+.hero-content h1{
+  font-size:3.5rem;
+  line-height:1.1;
+}
+
+.hero-content span{
+  color:var(--primary);
+}
+
+.typing-container {
+  margin-top:15px;
+  font-size:1.3rem;
+  color:var(--accent);
+  min-height:35px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.typing::after {
+  content: "|";
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-content p{
+  margin-top:20px;
+  max-width:600px;
+  line-height:1.7;
+  color:#CBD5E1;
+}
+
+/* BUTTONS */
+.btns{
+  margin-top:25px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:12px 24px;
+  border-radius:10px;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary{
+  background:var(--primary);
+  color:white;
+}
+
+.primary:hover {
+  background: #2563EB;
+  box-shadow:0 5px 15px rgba(59,130,246,.4);
+}
+
+.secondary{
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+.secondary:hover {
+  background: rgba(168,85,247,.1);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* SECTIONS */
+section{
+  padding:90px 8%;
+  scroll-margin-top: 80px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.3rem;
+  margin-bottom:50px;
+  color:var(--primary);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ABOUT SECTION SPLIT LAYOUT WITH HIGHLIGHT & TRANSITION */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* About Image Box with Transition Styles */
+.about-image {
+  width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  /* Fluid timing curve transition configuration */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Highlight and Interactive Zoom States on Hover */
+.about-image:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+/* GRID SETUP */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+/* CARDS */
+.card{
+  background:rgba(30,41,59,.7);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 30px rgba(168,85,247,.15);
+  border-color:var(--primary);
+}
+
+.card h3{
+  color:var(--accent);
+  margin-bottom:15px;
+  font-size: 1.4rem;
+}
+
+.card p {
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info a {
+  transition: color 0.2s;
+}
+.contact-info a:hover {
+  color: var(--primary) !important;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  background:var(--surface);
+  margin-top:60px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  color: #94A3B8;
+}
+
+/* RESPONSIVE DESIGN MEDIA QUERIES */
+@media(max-width:768px){
+  nav{
+    padding: 20px 5%;
+  }
+
+  nav ul{
+    gap: 15px;
+  }
+  
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero{
+    padding: 40px 5%;
+    gap: 40px;
+  }
+
+  .hero-content h1{
+    font-size:2.5rem;
+  }
+
+  .profile{
+    width:240px;
+    height:240px;
+  }
+
+  .about-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+}
+
+@media(max-width: 540px) {
+  nav ul {
+    display: none;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+<div class="logo">Shahriyer Salman Swapno</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+<!-- Headshot Photo pointing to image_0.png -->
+<div class="profile">
+<img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait">
+</div>
+
+<div class="hero-content">
+<h1>Hello, I'm <span>Shahriyer Salman Swapno</span></h1>
+
+<div class="typing-container">
+  <span class="typing"></span>
+</div>
+
+<p>
+Diploma in Electrical Engineering Technology student at Jashore Polytechnic Institute.
+Passionate about technology, AI, and PC troubleshooting.
+</p>
+
+<div class="btns">
+<a href="mailto:shahriyersalman@gmail.com" class="btn primary">Email Me</a>
+<a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a href="resume.pdf" class="btn primary" download>Download CV</a>
+</div>
+</div>
+
+</section>
+
+<!-- ABOUT SECTION WITH IMAGE_1.PNG, HIGHLIGHT, AND HOVER TRANSITIONS -->
+<section id="about">
+<h2 class="section-title">About Me</h2>
+<div class="about-container">
+  
+  <div class="card about-text">
+    <p>
+    I am a Diploma student in Electrical Engineering Technology at Jashore Polytechnic Institute. 
+    I enjoy combining my core engineering knowledge with fields in computation. I love exploring AI pipelines, computer architecture, and solving complex hardware or software troubleshooting bottlenecks.
+    </p>
+  </div>
+
+  <!-- Your garden portrait photo pointing explicitly to image_1.png with transitions -->
+  <div class="about-image">
+    <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait">
+  </div>
+
+</div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Electrical Engineering</h3>
+<p>Basic engineering design concepts, circuit analysis, and practical industrial lab learning application sets.</p>
+</div>
+
+<div class="card">
+<h3>PC Troubleshooting</h3>
+<p>In-depth hardware diagnosis, component assemblies, operating system maintenance, and software issue resolution.</p>
+</div>
+
+<div class="card">
+<h3>Basic Computing</h3>
+<p>Office efficiency tools, systems operations, shell fundamentals, and structural productivity application tools.</p>
+</div>
+
+<div class="card">
+<h3>AI & Tech</h3>
+<p>Exploring state-of-the-art consumer tools, machine generation pipelines, workflows, and modern technology frameworks.</p>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+<div class="grid">
+
+<div class="card">
+<h3>Scientific Calculator</h3>
+<p>A full-scale functional web client calculator engine built using robust semantic HTML, vanilla CSS variables, and native JavaScript computations.</p>
+</div>
+
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>This dynamic responsive user environment portfolio layout, utilizing contemporary modern styling elements, glassmorphic UI rules, and fluid CSS grids.</p>
+</div>
+
+</div>
+</section>
+
+<!-- EDUCATION SECTION -->
+<section id="education">
+<h2 class="section-title">Education</h2>
+<div class="card">
+<h3>Jashore Polytechnic Institute</h3>
+<p style="color: var(--accent); font-weight: 500; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
+<p>
+5th Semester Enrollment<br>
+Jashore, Khulna Division, Bangladesh
+</p>
+</div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+<h2 class="section-title">Contact Me</h2>
+<div class="card contact-info">
+<p>📧 <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com" style="color: inherit; text-decoration: none;">shahriyersalman@gmail.com</a></p>
+<p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">+8801965566671</a></p>
+<p>📍 <strong>Location:</strong> Jashore, Bangladesh</p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+&copy; 2026 Shahriyer Salman Swapno &bull; All Rights Reserved
+</footer>
+
+<!-- JAVASCRIPT TYPING EFFECT -->
+<script>
+const words = ["Electrical Engineering Student", "Tech Enthusiast", "AI Explorer"];
+let wordIdx = 0;
+let charIdx = 0;
+let isDeleting = false;
+const typingSpeed = 100;
+const erasingSpeed = 40;
+const delayBetweenWords = 2000;
+
+function typeEffect(){
+  const currentWord = words[wordIdx];
+  const el = document.querySelector(".typing");
+  
+  if(!el) return;
+
+  if(isDeleting) {
+    el.textContent = currentWord.substring(0, charIdx - 1);
+    charIdx--;
+  } else {
+    el.textContent = currentWord.substring(0, charIdx + 1);
+    charIdx++;
+  }
+  
+  let currentDelay = isDeleting ? erasingSpeed : typingSpeed;
+  
+  if(!isDeleting && charIdx === currentWord.length) {
+    currentDelay = delayBetweenWords;
+    isDeleting = true;
+  } else if(isDeleting && charIdx === 0) {
+    isDeleting = false;
+    wordIdx = (wordIdx + 1) % words.length;
+  }
+  
+  setTimeout(typeEffect, currentDelay);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(typeEffect, 500);
+});
+</script>
+
+</body>
+</html>
