@@ -52,7 +52,7 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  width0:400px;
+  width:400px;
   height:400px;
   background:rgba(168,85,247,.15); 
   filter:blur(150px);
@@ -68,16 +68,14 @@ body::after{
 */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(60px) scaleX(0.96);
-  filter: blur(4px);
-  /* Uses standard transition property instead of real-time scroll tracking to prevent mobile stutter */
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform, opacity, filter;
+  transform: translateY(40px) scaleX(0.97);
+  filter: blur(3px);
+  transition: transform 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              opacity 0.7s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              filter 0.7s cubic-bezier(0.215, 0.610, 0.355, 1);
+  will-change: transform, opacity;
 }
 
-/* Triggered beautifully via JS once the element enters the viewport */
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0) scaleX(1);
@@ -239,6 +237,13 @@ nav a:hover{
 section{
   padding:90px 8%;
   scroll-margin-top: 80px;
+  /* Optimization: Tells mobile browsers to smartly manage rendering memory when offscreen */
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+#home {
+  content-visibility: visible; /* Don't defer the main hero intro */
 }
 
 .section-title{
@@ -439,7 +444,7 @@ footer{
 <section class="hero" id="home">
 
 <div class="profile">
-<img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait">
+<img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait" decoding="async" loading="eager">
 </div>
 
 <div class="hero-content">
@@ -476,7 +481,8 @@ Passionate about technology, AI, and PC troubleshooting.
   </div>
 
   <div class="about-image animate-on-scroll">
-    <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait">
+    <!-- Optimization: Added async decoding so image processing won't halt the main UI scrolling thread -->
+    <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait" decoding="async" loading="lazy">
   </div>
 
 </div>
@@ -561,18 +567,17 @@ Jashore, Khulna Division, Bangladesh
 document.addEventListener("DOMContentLoaded", () => {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
-  // High-performance configurations for mobile layout frame rate
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -10% 0px', // Triggers slightly before element comes fully into view
-    threshold: 0.05 // Tiny trigger value for fast mobile swipes
+    rootMargin: '0px 0px -8% 0px', // Adjusted to pop cleanly on slow mobile drags
+    threshold: 0.02
   };
 
   const scrollObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // Stops monitoring once visible to save phone battery
+        observer.unobserve(entry.target); 
       }
     });
   }, observerOptions);
