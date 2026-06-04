@@ -36,29 +36,50 @@ body{
   padding-top: 80px;
 }
 
-/* Background Glow Blobs */
+/* 
+=========================================
+  DYNAMIC GRAPHICAL BACKGROUND MOVEMENT
+=========================================
+Using hardware-accelerated transforms to drift the blobs fluidly without killing mobile FPS
+*/
 body::before{
   content:"";
   position:fixed;
-  width:500px;
-  height:500px;
-  background:rgba(59,130,246,.15);
-  filter:blur(150px);
+  width:600px;
+  height:600px;
+  background:rgba(59,130,246,.18);
+  filter:blur(140px);
   top:-200px;
   right:-100px;
   z-index:-1;
+  animation: cosmicDriftOne 22s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 body::after{
   content:"";
   position:fixed;
-  width:400px;
-  height:400px;
+  width:500px;
+  height:500px;
   background:rgba(168,85,247,.15); 
-  filter:blur(150px);
+  filter:blur(140px);
   bottom:-150px;
   left:-100px;
   z-index:-1;
+  animation: cosmicDriftTwo 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes cosmicDriftOne {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-80px, 60px) scale(1.15); }
+  100% { transform: translate(-30px, -40px) scale(0.95); }
+}
+
+@keyframes cosmicDriftTwo {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, -80px) scale(0.9); }
+  100% { transform: translate(-40px, 30px) scale(1.1); }
 }
 
 /* 
@@ -237,13 +258,12 @@ nav a:hover{
 section{
   padding:90px 8%;
   scroll-margin-top: 80px;
-  /* Optimization: Tells mobile browsers to smartly manage rendering memory when offscreen */
   content-visibility: auto;
   contain-intrinsic-size: 500px;
 }
 
 #home {
-  content-visibility: visible; /* Don't defer the main hero intro */
+  content-visibility: visible;
 }
 
 .section-title{
@@ -481,7 +501,6 @@ Passionate about technology, AI, and PC troubleshooting.
   </div>
 
   <div class="about-image animate-on-scroll">
-    <!-- Optimization: Added async decoding so image processing won't halt the main UI scrolling thread -->
     <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait" decoding="async" loading="lazy">
   </div>
 
@@ -569,7 +588,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -8% 0px', // Adjusted to pop cleanly on slow mobile drags
+    rootMargin: '0px 0px -8% 0px', 
     threshold: 0.02
   };
 
