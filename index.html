@@ -6,40 +6,60 @@
 
 <title>Shahriyer Salman Swapno | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700;800&family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-  --bg:#0F172A;
-  --surface:#1E293B;
+  --bg:#0B0F19;
+  --surface: rgba(30, 41, 59, 0.4);
   --primary:#3B82F6;
   --accent:#A855F7; 
   --text:#F8FAFC;
+  --card-border: rgba(255, 255, 255, 0.08);
+  
+  /* CV Specific tokens */
+  --bg-dark: #090d16;
+  --panel-dark: #111726;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+
+body {
   font-family:'Poppins',sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
   padding-top: 80px;
 }
 
-/* =========================================
-   SCROLL-DRIVEN SHOOTING STAR BACKGROUND
-=========================================
-*/
+html{
+  scroll-behavior:smooth;
+}
+
+/* CUSTOM SMOOTH SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* SCROLL-DRIVEN SHOOTING STAR BACKGROUND */
 .bg-glow-container {
   position: fixed;
   top: 0;
@@ -65,26 +85,23 @@ body{
   border-radius: 50%;
   will-change: transform;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .blob-blue {
-  width: 500px;
-  height: 500px;
-  background: rgba(59, 130, 246, 0.16);
-  filter: blur(120px);
-  -webkit-filter: blur(120px);
+  width: 600px;
+  height: 600px;
+  background: rgba(59, 130, 246, 0.12);
+  filter: blur(140px);
   top: -150px;
   right: -100px;
   animation: cosmicDriftOne 25s ease-in-out infinite alternate;
 }
 
 .blob-purple {
-  width: 450px;
-  height: 450px;
-  background: rgba(168, 85, 247, 0.14);
-  filter: blur(120px);
-  -webkit-filter: blur(120px);
+  width: 550px;
+  height: 550px;
+  background: rgba(168, 85, 247, 0.1);
+  filter: blur(140px);
   bottom: -100px;
   left: -100px;
   animation: cosmicDriftTwo 30s ease-in-out infinite alternate;
@@ -102,10 +119,7 @@ body{
   100% { transform: translate3d(-30px, 20px, 0) scale(1.05); }
 }
 
-/* =========================================
-   NATIVE SCROLL-DRIVEN FADE-IN ANIMATIONS
-=========================================
-*/
+/* NATIVE SCROLL REVEAL ANIMATIONS */
 .animate-on-scroll {
   view-timeline-name: --sectionView;
   view-timeline-axis: block;
@@ -119,12 +133,12 @@ body{
 @keyframes nativeReveal {
   from {
     opacity: 0;
-    transform: translateY(40px) scaleX(0.97);
+    transform: translateY(30px);
     filter: blur(4px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scaleX(1);
+    transform: translateY(0);
     filter: blur(0);
   }
 }
@@ -135,15 +149,15 @@ nav{
   top:0;
   left:0;
   width:100%;
-  background:rgba(15,23,42,.85);
-  backdrop-filter:blur(15px);
-  -webkit-backdrop-filter:blur(15px);
+  background:rgba(11, 15, 25, 0.8);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
   padding:20px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .logo{
@@ -186,7 +200,7 @@ nav a:hover{
   border-radius:50%;
   overflow:hidden;
   border:4px solid var(--primary);
-  box-shadow:0 0 40px rgba(59,130,246,.4);
+  box-shadow:0 0 40px rgba(59,130,246,.3);
   animation:float 4s ease-in-out infinite;
 }
 
@@ -202,12 +216,18 @@ nav a:hover{
 }
 
 .hero-content h1{
-  font-size:3.5rem;
-  line-height:1.1;
+  font-size:4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #FFFFFF 40%, #94A3B8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content span{
-  color:var(--primary);
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .typing-container {
@@ -215,7 +235,7 @@ nav a:hover{
   font-size:1.3rem;
   color:var(--accent);
   min-height:35px;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
 }
@@ -235,10 +255,10 @@ nav a:hover{
   margin-top:20px;
   max-width:600px;
   line-height:1.7;
-  color:#CBD5E1;
+  color:#94A3B8;
 }
 
-/* BUTTONS */
+/* BUTTONS & MAGNETIC SETUP */
 .btns{
   margin-top:25px;
   display:flex;
@@ -246,41 +266,46 @@ nav a:hover{
   flex-wrap:wrap;
 }
 
+.btn-wrapper {
+  display: inline-block;
+  perspective: 1000px;
+}
+
 .btn{
-  padding:12px 24px;
-  border-radius:10px;
+  padding:14px 28px;
+  border-radius:12px;
   font-weight:600;
   text-decoration:none;
-  transition:.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  will-change: transform;
+  cursor: pointer;
+  border: none;
 }
 
 .primary{
-  background:var(--primary);
+  background: linear-gradient(135deg, var(--primary), #2563EB);
   color:white;
 }
 
 .primary:hover {
-  background: #2563EB;
-  box-shadow:0 5px 15px rgba(59,130,246,.4);
+  box-shadow:0 0 25px rgba(59,130,246,.4);
 }
 
 .secondary{
   border:2px solid var(--accent);
   color:var(--accent);
+  background: rgba(168,85,247,.03);
 }
 
 .secondary:hover {
   background: rgba(168,85,247,.1);
+  box-shadow: 0 0 25px rgba(168,85,247,.2);
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-/* SECTIONS */
+/* SECTIONS BAR */
 section{
   padding:90px 8%;
   scroll-margin-top: 80px;
@@ -288,15 +313,16 @@ section{
   contain-intrinsic-size: 500px;
 }
 
-#home {
-  content-visibility: visible;
-}
+#home { content-visibility: visible; }
 
 .section-title{
   text-align:center;
-  font-size:2.3rem;
+  font-size:2.5rem;
+  font-weight: 800;
   margin-bottom:50px;
-  color:var(--primary);
+  background: linear-gradient(to right, #FFFFFF, #94A3B8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
 }
 
@@ -306,13 +332,13 @@ section{
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
+  width: 60px;
   height: 4px;
-  background: var(--accent);
+  background: linear-gradient(to right, var(--primary), var(--accent));
   border-radius: 2px;
 }
 
-/* ABOUT SECTION LAYOUT */
+/* ABOUT LAYOUT */
 .about-container {
   display: flex;
   align-items: center;
@@ -328,61 +354,55 @@ section{
 .about-image {
   width: 320px;
   height: 420px;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .about-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s ease;
 }
 
 .about-image:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px);
   border-color: var(--primary);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
 }
 
 .about-image:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
-/* GRID SETUP */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
-}
-
-/* CARDS */
+/* GLASSMORPHIC CARDS */
 .card{
-  background:rgba(30,41,59,.7);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  padding:30px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.05);
-  transition:.4s ease;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding:35px;
+  border-radius:24px;
+  border: 1px solid var(--card-border);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 15px 30px rgba(168,85,247,.15);
-  border-color:var(--primary);
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .card h3{
-  color:var(--accent);
+  color: #FFFFFF;
   margin-bottom:15px;
   font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .card p {
@@ -390,8 +410,80 @@ section{
   line-height: 1.6;
 }
 
-/* FIX: REALIGNMENT COMPONENT STYLING FOR CONTACT INFO */
-.contact-info p {
+/* BENTO GRID ARCHITECTURE */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.bento-wide {
+  grid-column: span 2;
+}
+
+.bento-tall {
+  grid-row: span 1;
+}
+
+/* MODERN TECH BADGES */
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #CBD5E1;
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* EDUCATION STYLING */
+.education-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.education-item {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255,255,255,0.1);
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.education-item.secondary-edu::before {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* CONTACT CONFIGURATION */
+.contact-details p {
   margin-bottom: 20px;
   font-size: 1.05rem;
   display: flex;
@@ -400,92 +492,319 @@ section{
   width: 100%;
 }
 
-.contact-info strong {
+.contact-details strong {
   white-space: nowrap;
   min-width: 95px;
   display: inline-block;
+  color: var(--primary);
 }
 
-.contact-info a, 
-.contact-info span {
+.contact-details a, 
+.contact-details span {
   word-break: break-all;
   color: #CBD5E1;
   line-height: 1.5;
 }
 
-.contact-info a {
+.contact-details a {
   transition: color 0.2s;
 }
-.contact-info a:hover {
-  color: var(--primary) !important;
+.contact-details a:hover {
+  color: var(--accent) !important;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:30px;
-  background:var(--surface);
+  background: #070A12;
   margin-top:60px;
-  border-top: 1px solid rgba(255,255,255,.05);
-  color: #94A3B8;
+  border-top: 1px solid var(--card-border);
+  color: #64748B;
 }
 
-/* RESPONSIVE DESIGN MEDIA QUERIES */
+/* =======================================================
+   MODAL SLEEK CV OVERLAY STYLES
+======================================================= */
+.cv-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 6, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  padding: 40px 20px;
+}
+
+.cv-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cv-container {
+  width: 100%;
+  max-width: 900px;
+  background: var(--panel-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transform: translateY(30px) scale(0.98);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cv-modal-overlay.active .cv-container {
+  transform: translateY(0) scale(1);
+}
+
+.toolbar {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.print-btn, .close-cv-btn {
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.print-btn {
+  background: linear-gradient(135deg, var(--primary), #2563eb);
+}
+.print-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.close-cv-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.close-cv-btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  font-family: 'Inter', sans-serif;
+}
+
+.cv-sidebar {
+  background: rgba(0, 0, 0, 0.15);
+  border-right: 1px solid var(--border-color);
+  padding: 35px 25px;
+}
+
+.profile-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  margin-bottom: 25px;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-section { margin-bottom: 30px; }
+
+.sidebar-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 5px;
+}
+
+.contact-item {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  word-break: break-all;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.contact-item a { color: var(--text-main); text-decoration: none;}
+
+.badge-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.cv-badge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.cv-main { padding: 45px 40px; }
+
+.header-block { margin-bottom: 35px; }
+
+.header-block h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  background: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-block .subtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.main-section { margin-bottom: 35px; }
+
+.main-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-title::after {
+  content: ''; flex: 1; height: 1px; background: var(--border-color);
+}
+
+.summary-text {
+  color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;
+}
+
+.timeline-block { display: flex; flex-direction: column; gap: 20px; }
+
+.timeline-item {
+  position: relative; padding-left: 20px; border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item::before {
+  content: ''; position: absolute; left: -4px; top: 6px; width: 7px; height: 7px; background: var(--primary); border-radius: 50%;
+}
+
+.timeline-item.alt::before { background: var(--accent); }
+
+.timeline-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+
+.timeline-title { font-size: 0.95rem; font-weight: 600; color: #fff; }
+
+.timeline-meta { font-size: 0.85rem; color: var(--primary); font-weight: 500; }
+
+.timeline-item.alt .timeline-meta { color: var(--accent); }
+
+.timeline-org { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
+
+.timeline-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+/* RESPONSIVE LAYOUTS */
+@media(max-width:1024px){
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-wide { grid-column: span 2; }
+}
+
 @media(max-width:768px){
-  nav{
-    padding: 20px 5%;
-  }
+  nav{ padding: 20px 5%; }
+  nav ul{ gap: 15px; }
+  nav a { font-size: 0.9rem; }
 
-  nav ul{
-    gap: 15px;
-  }
+  .hero{ padding: 40px 5%; gap: 40px; }
+  .hero-content h1{ font-size: 2.8rem; }
+  .profile{ width:250px; height:250px; }
+
+  .about-container { flex-direction: column-reverse; justify-content: center; }
+  .about-image { width: 100%; max-width: 320px; height: 380px; }
+
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-wide { grid-column: span 1; }
+
+  section { padding: 60px 5%; }
   
-  nav a {
-    font-size: 0.9rem;
-  }
-
-  .hero{
-    padding: 40px 5%;
-    gap: 40px;
-  }
-
-  .hero-content h1{
-    font-size:2.5rem;
-  }
-
-  .profile{
-    width:240px;
-    height:240px;
-  }
-
-  .about-container {
-    flex-direction: column-reverse;
-    justify-content: center;
-  }
-
-  .about-image {
-    width: 100%;
-    max-width: 320px;
-    height: 380px;
-  }
-
-  section {
-    padding: 60px 5%;
-  }
+  .cv-grid { grid-template-columns: 1fr; }
+  .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border-color); padding: 30px; }
+  .profile-frame { max-width: 200px; }
+  .cv-main { padding: 30px; }
 }
 
 @media(max-width: 540px) {
-  nav {
-    justify-content: center;
-  }
-  nav ul {
-    display: none;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
+  nav { justify-content: center; }
+  nav ul { display: none; }
+  .hero-content h1 { font-size: 2.2rem; }
 }
 
+/* HIGH-FIDELITY PRINT STYLESHEET */
+@media print {
+  body * { visibility: hidden; }
+  .cv-container, .cv-container * { visibility: visible; }
+  .cv-modal-overlay { position: absolute; left: 0; top: 0; background: #fff !important; padding: 0 !important; overflow: visible !important; }
+  .toolbar { display: none !important; }
+  .cv-container { border: none !important; box-shadow: none !important; background: #fff !important; max-width: 100% !important; position: absolute; left: 0; top: 0; }
+  .cv-grid { grid-template-columns: 240px 1fr !important; background: #fff !important; }
+  .cv-sidebar { background: #f8fafc !important; border-right: 1px solid #e2e8f0 !important; padding: 20px !important; }
+  .profile-frame { border-color: #000 !important; }
+  .cv-main { padding: 20px 0 20px 30px !important; }
+  .header-block h1 { background: none !important; -webkit-text-fill-color: initial !important; color: #000 !important; }
+  .header-block .subtitle, .timeline-meta, .sidebar-title { color: #1e40af !important; }
+  .timeline-item.alt .timeline-meta { color: #6b21a8 !important; }
+  .text-main, .timeline-title, .main-title { color: #000 !important; }
+  .main-title::after { background: #e2e8f0 !important; }
+  .text-muted, .timeline-org, .timeline-desc, .contact-item strong { color: #475569 !important; }
+  .cv-badge { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; color: #334155 !important; }
+}
 </style>
 </head>
 
@@ -523,13 +842,20 @@ footer{
 
 <p>
 Diploma in Electrical Engineering Technology student at Jashore Polytechnic Institute.
-Passionate about technology, AI, and PC troubleshooting.
+Passionate about technology, AI automation pipelines, and high-performance hardware architecture.
 </p>
 
 <div class="btns">
-<a href="mailto:shahriyersalman@gmail.com" class="btn primary">Email Me</a>
-<a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-<a href="resume.pdf" class="btn primary" download>Download CV</a>
+  <div class="btn-wrapper">
+    <a href="mailto:shahriyersalman@gmail.com" class="btn primary">Email Me</a>
+  </div>
+  <div class="btn-wrapper">
+    <a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  </div>
+  <!-- CONNECTED HOOK: OPEN MODAL CV -->
+  <div class="btn-wrapper">
+    <button class="btn primary" onclick="toggleCVModal(true)">Download CV</button>
+  </div>
 </div>
 </div>
 
@@ -541,58 +867,86 @@ Passionate about technology, AI, and PC troubleshooting.
   
   <div class="card about-text animate-on-scroll">
     <p>
-    I am a Diploma student in Electrical Engineering Technology at Jashore Polytechnic Institute.
-    I enjoy combining my core engineering knowledge with fields in computation. I love exploring AI pipelines, computer architecture, and solving complex hardware or software troubleshooting bottlenecks.
+    I am an Electrical Engineering Technology student at Jashore Polytechnic Institute.
+    I love connecting physical systems automation concepts with consumer computation. I focus heavily on expanding workflows into modern AI landscapes, optimizing system architecture, and debugging hardware-to-software operational bottlenecks.
     </p>
   </div>
 
   <div class="about-image animate-on-scroll">
-    <img src="image_1.png" alt="Shahriyer Salman Swapno garden profile portrait" decoding="async" loading="lazy">
+    <img src="image_1.png" alt="Shahriyer Salman Swapno profile snapshot" decoding="async" loading="lazy">
   </div>
 
 </div>
 </section>
 
 <section id="skills">
-<h2 class="section-title animate-on-scroll">Skills</h2>
-<div class="grid">
+<h2 class="section-title animate-on-scroll">Skills & Expertise</h2>
+<div class="bento-grid">
 
-<div class="card animate-on-scroll">
-<h3>Electrical Engineering</h3>
-<p>Basic engineering design concepts, circuit analysis, and practical industrial lab learning application sets.</p>
-</div>
+  <div class="card bento-wide animate-on-scroll">
+    <h3>⚡ Electrical Engineering & CAD</h3>
+    <p>Core engineering principles, dynamic circuit analysis, and structural circuit blueprints mapping inside diagnostic layout engines.</p>
+    <div class="badge-container">
+      <span class="badge">Circuit Design</span>
+      <span class="badge">AutoCAD Electrical</span>
+      <span class="badge">Industrial Automation</span>
+    </div>
+  </div>
 
-<div class="card animate-on-scroll">
-<h3>PC Troubleshooting</h3>
-<p>In-depth hardware diagnosis, component assemblies, operating system maintenance, and software issue resolution.</p>
-</div>
+  <div class="card bento-tall animate-on-scroll">
+    <h3>🛠️ Hardware Diagnostics</h3>
+    <p>Advanced diagnostic processing, component optimization analysis, thermal performance mapping, and full OS rebuild architectures.</p>
+    <div class="badge-container">
+      <span class="badge">PC Architecture</span>
+      <span class="badge">SysOps</span>
+    </div>
+  </div>
 
-<div class="card animate-on-scroll">
-<h3>Basic Computing</h3>
-<p>Office efficiency tools, systems operations, shell fundamentals, and structural productivity application tools.</p>
-</div>
+  <div class="card bento-tall animate-on-scroll">
+    <h3>💻 Core Computing</h3>
+    <p>Advanced shell operations, basic automated scripting terminals, and custom environment build systems integration.</p>
+    <div class="badge-container">
+      <span class="badge">Bash Shell</span>
+      <span class="badge">HTML5 / CSS3</span>
+      <span class="badge">Vanilla JS</span>
+    </div>
+  </div>
 
-<div class="card animate-on-scroll">
-<h3>AI & Tech</h3>
-<p>Exploring state-of-the-art consumer tools, machine generation pipelines, workflows, and modern technology frameworks.</p>
-</div>
+  <div class="card bento-wide animate-on-scroll">
+    <h3>🤖 Next-Gen Tech & AI Architectures</h3>
+    <p>Constructing local custom interface structures, utilizing deep generational pipelines, prompt frameworks, and optimizing system compute distributions.</p>
+    <div class="badge-container">
+      <span class="badge">AI Frameworks</span>
+      <span class="badge">API Integrations</span>
+      <span class="badge">Workflow Optimization</span>
+    </div>
+  </div>
 
 </div>
 </section>
 
 <section id="projects">
-<h2 class="section-title animate-on-scroll">Projects</h2>
-<div class="grid">
+<h2 class="section-title animate-on-scroll">Featured Projects</h2>
+<div class="bento-grid">
 
-<div class="card animate-on-scroll">
-<h3>Scientific Calculator</h3>
-<p>A full-scale functional web client calculator engine built using robust semantic HTML, vanilla CSS variables, and native JavaScript computations.</p>
-</div>
+  <div class="card bento-tall animate-on-scroll">
+    <h3>🧮 Web Scientific Calculator</h3>
+    <p>A full-scale floating-point computing web math engine built natively using robust standard semantic elements and vanilla processing equations logic paths.</p>
+    <div class="badge-container">
+      <span class="badge">JavaScript Engine</span>
+      <span class="badge">UI Custom Math</span>
+    </div>
+  </div>
 
-<div class="card animate-on-scroll">
-<h3>Portfolio Website</h3>
-<p>This dynamic responsive user environment portfolio layout, utilizing contemporary modern styling elements, glassmorphic UI rules, and fluid CSS grids.</p>
-</div>
+  <div class="card bento-wide animate-on-scroll">
+    <h3>🌐 Glassmorphic Space Portfolio</h3>
+    <p>An immersive engineering environment portfolio layout engineered with zero bloated framework requirements. Features scroll velocity rendering vectors, custom canvas stars particle systems, and native view-timeline triggers.</p>
+    <div class="badge-container">
+      <span class="badge">HTML5 Canvas</span>
+      <span class="badge">Performance Engineering</span>
+      <span class="badge">CSS Grid Systems</span>
+    </div>
+  </div>
 
 </div>
 </section>
@@ -600,23 +954,152 @@ Passionate about technology, AI, and PC troubleshooting.
 <section id="education">
 <h2 class="section-title animate-on-scroll">Education</h2>
 <div class="card animate-on-scroll">
-<h3>Jashore Polytechnic Institute</h3>
-<p style="color: var(--accent); font-weight: 500; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
-<p>
-5th Semester Enrollment<br>
-Jashore, Khulna Division, Bangladesh
-</p>
+  <div class="education-timeline">
+    
+    <div class="education-item">
+      <h3>Jashore Polytechnic Institute</h3>
+      <p style="color: var(--primary); font-weight: 600; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
+      <p>Currently Pursuing &bull; Jashore, Khulna Division, Bangladesh</p>
+    </div>
+    
+    <div class="education-item secondary-edu">
+      <h3>Shahid Rezaul Kabir BGB Public School, Jashore</h3>
+      <p style="color: var(--accent); font-weight: 600; margin-bottom: 5px;">Secondary School Certificate (SSC) &bull; Science Group</p>
+      <p>Result: <strong>GPA 5.00</strong> &bull; Jashore, Bangladesh</p>
+    </div>
+
+  </div>
 </div>
 </section>
 
 <section id="contact">
 <h2 class="section-title animate-on-scroll">Contact Me</h2>
-<div class="card contact-info animate-on-scroll">
+<div class="card contact-details animate-on-scroll">
 <p>📧 <strong>Email:</strong> <a href="mailto:shahriyersalman@gmail.com">shahriyersalman@gmail.com</a></p>
 <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer">+8801965566671</a></p>
 <p>📍 <strong>Location:</strong> <span>Jashore, Bangladesh</span></p>
 </div>
 </section>
+
+<!-- =======================================================
+   CV MODAL STRUCTURE (HIDDEN UNTIL CLICKED)
+======================================================= */ -->
+<div class="cv-modal-overlay" id="cvModal" onclick="toggleCVModal(false)">
+  <div class="cv-container" onclick="event.stopPropagation()">
+    
+    <div class="toolbar">
+      <div class="toolbar-title">Executive CV Interactive Sandbox</div>
+      <div class="toolbar-actions">
+        <button class="print-btn" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </button>
+        <button class="close-cv-btn" onclick="toggleCVModal(false)">Close</button>
+      </div>
+    </div>
+
+    <div class="cv-grid">
+      <aside class="cv-sidebar">
+        <div class="profile-frame">
+          <img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait">
+        </div>
+        
+        <div class="sidebar-section">
+          <h2 class="sidebar-title">Contact</h2>
+          <div class="contact-details">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:shahriyersalman@gmail.com">shahriyersalman@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer">+8801965566671</a>
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              <span>Jashore, Bangladesh</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2 class="sidebar-title">Tech Badges</h2>
+          <div class="badge-list">
+            <span class="cv-badge">Circuit Design</span>
+            <span class="cv-badge">AutoCAD Electrical</span>
+            <span class="cv-badge">Industrial Automation</span>
+            <span class="cv-badge">PC Architecture</span>
+            <span class="cv-badge">SysOps Diagnostics</span>
+            <span class="cv-badge">Bash Terminal</span>
+            <span class="cv-badge">HTML5 / CSS3</span>
+            <span class="cv-badge">Vanilla JS</span>
+            <span class="cv-badge">AI Pipelines</span>
+            <span class="cv-badge">API Integration</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="cv-main">
+        <div class="header-block">
+          <h1>Shahriyer Salman Swapno</h1>
+          <div class="subtitle">Electrical Engineering & Systems Optimization Specialist</div>
+        </div>
+
+        <section class="main-section">
+          <h2 class="main-title">Professional Summary</h2>
+          <p class="summary-text">
+            Electrical Engineering Technology student specializing in complex automation processes, industrial system layouts, and consumer computing. Proficient at optimizing hardware-to-software integration, designing diagnostic layouts, and bridging hardware controls with advanced local AI automation.
+          </p>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">Education</h2>
+          <div class="timeline-block">
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <span class="timeline-title">Jashore Polytechnic Institute</span>
+                <span class="timeline-meta">Currently Pursuing</span>
+              </div>
+              <div class="timeline-org">Diploma in Electrical Engineering Technology</div>
+              <p class="timeline-desc">Focusing on industrial control infrastructures, advanced grid machinery, custom system builds, and blueprint automation logic.</p>
+            </div>
+
+            <div class="timeline-item alt">
+              <div class="timeline-header">
+                <span class="timeline-title">Shahid Rezaul Kabir BGB Public School</span>
+                <span class="timeline-meta">Completed</span>
+              </div>
+              <div class="timeline-org">Secondary School Certificate (SSC) &bull; Science Group</div>
+              <p class="timeline-desc">Graduated with an outstanding academic record of <strong>GPA 5.00</strong>, laying a foundation in core analytical calculations and mathematics.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="main-section">
+          <h2 class="main-title">Core Achievements & Projects</h2>
+          <div class="timeline-block">
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <span class="timeline-title">Glassmorphic Space Engineering Sandbox</span>
+                <span class="timeline-meta">Open Source</span>
+              </div>
+              <p class="timeline-desc">Engineered an interactive matrix space interface architecture using zero-bloat frameworks. Built custom multi-threaded HTML5 scroll velocity tracking vectors and high-refresh viewport animation parameters natively.</p>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header">
+                <span class="timeline-title">Web-Native Scientific Calculator Engine</span>
+                <span class="timeline-meta">Completed</span>
+              </div>
+              <p class="timeline-desc">Designed and deployed a responsive native floating-point math processing engine utilizing pure semantics and raw functional processing algorithms for zero calculations delay.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+  </div>
+</div>
 
 <footer>
 &copy; 2026 Shahriyer Salman Swapno &bull; All Rights Reserved
@@ -637,7 +1120,6 @@ const delayBetweenWords = 2000;
 function typeEffect(){
   const currentWord = words[wordIdx];
   const el = document.querySelector(".typing");
-  
   if(!el) return;
 
   if(isDeleting) {
@@ -690,49 +1172,31 @@ function initInteractiveStars() {
   const maxStars = 25; 
 
   class ScrollStar {
-    constructor() {
-      this.reset(true);
-    }
+    constructor() { this.reset(true); }
     
     reset(initPhase = false) {
       this.length = Math.random() * 70 + 30;
       this.speed = Math.random() * 1.5 + 0.5;
       this.opacity = Math.random() * 0.4 + 0.1;
-      
-      this.angleX = 1;
-      this.angleY = 0.75;
+      this.angleX = 1; this.angleY = 0.75;
 
       if (initPhase) {
         this.x = Math.random() * (width + 200) - 100;
         this.y = Math.random() * (height + 200) - 100;
       } else {
         if (scrollVelocity >= 0) {
-          if (Math.random() > 0.5) {
-            this.x = Math.random() * width;
-            this.y = -50;
-          } else {
-            this.x = -50;
-            this.y = Math.random() * (height * 0.5);
-          }
+          if (Math.random() > 0.5) { this.x = Math.random() * width; this.y = -50; } 
+          else { this.x = -50; this.y = Math.random() * (height * 0.5); }
         } else {
-          if (Math.random() > 0.5) {
-            this.x = Math.random() * width;
-            this.y = height + 50;
-          } else {
-            this.x = width + 50;
-            this.y = Math.random() * height;
-          }
+          if (Math.random() > 0.5) { this.x = Math.random() * width; this.y = height + 50; } 
+          else { this.x = width + 50; this.y = Math.random() * height; }
         }
       }
     }
 
     update() {
-      const moveX = (this.speed * this.angleX) + (scrollVelocity * 0.15);
-      const moveY = (this.speed * this.angleY) + (scrollVelocity * 0.12);
-
-      this.x += moveX;
-      this.y += moveY;
-
+      this.x += (this.speed * this.angleX) + (scrollVelocity * 0.15);
+      this.y += (this.speed * this.angleY) + (scrollVelocity * 0.12);
       if (scrollVelocity >= 0) {
         if (this.x > width + 150 || this.y > height + 150) this.reset();
       } else {
@@ -742,14 +1206,11 @@ function initInteractiveStars() {
 
     draw() {
       ctx.beginPath();
-      
       const trailX = this.x - (this.length * this.angleX) - (scrollVelocity * 0.4);
       const trailY = this.y - (this.length * this.angleY) - (scrollVelocity * 0.3);
-      
       const gradient = ctx.createLinearGradient(this.x, this.y, trailX, trailY);
       gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
       gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      
       ctx.strokeStyle = gradient;
       ctx.lineWidth = 1.2;
       ctx.moveTo(this.x, this.y);
@@ -758,30 +1219,53 @@ function initInteractiveStars() {
     }
   }
 
-  for (let i = 0; i < maxStars; i++) {
-    stars.push(new ScrollStar());
-  }
+  for (let i = 0; i < maxStars; i++) { stars.push(new ScrollStar()); }
 
   function animate() {
     ctx.clearRect(0, 0, width, height);
-    
-    stars.forEach(star => {
-      star.update();
-      star.draw();
-    });
-    
+    stars.forEach(star => { star.update(); star.draw(); });
     scrollVelocity *= 0.92; 
-    
     requestAnimationFrame(animate);
   }
-
   animate();
 }
 
-/* LAUNCH EVERYTHING */
+/* INTERACTIVE MAGNETIC BUTTONS */
+function initMagneticButtons() {
+  if (window.innerWidth < 768) return;
+  const wrappers = document.querySelectorAll('.btn-wrapper');
+  wrappers.forEach(wrapper => {
+    const btn = wrapper.querySelector('.btn');
+    wrapper.addEventListener('mousemove', (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left - (rect.width / 2);
+      const y = e.clientY - rect.top - (rect.height / 2);
+      btn.style.transform = `translate3d(${x * 0.35}px, ${y * 0.35}px, 0) scale(1.03)`;
+    });
+    wrapper.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate3d(0, 0, 0) scale(1)';
+    });
+  });
+}
+
+/* MODAL INTERACTION TOGGLE HOOK */
+function toggleCVModal(open) {
+  const modal = document.getElementById('cvModal');
+  if(!modal) return;
+  if(open) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; /* Prevent background scrolling */
+  } else {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+/* LAUNCH INITIALIZATION */
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeEffect, 500);
   initInteractiveStars();
+  initMagneticButtons();
 });
 </script>
 
