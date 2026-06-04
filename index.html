@@ -52,7 +52,7 @@ body::before{
 body::after{
   content:"";
   position:fixed;
-  width:400px;
+  width0:400px;
   height:400px;
   background:rgba(168,85,247,.15); 
   filter:blur(150px);
@@ -63,28 +63,25 @@ body::after{
 
 /* 
 =========================================
-  EXPANDED WIDER SCROLL ANIMATION
+  MOBILE-OPTIMIZED SMOOTH SCROLL ANIMATION
 =========================================
 */
-@keyframes scrollFadeInWider {
-  from {
-    opacity: 0;
-    /* Increased depth for a wider tracking sweep and added a horizontal expansion scale */
-    transform: translateY(80px) scaleX(0.95);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scaleX(1);
-    filter: blur(0);
-  }
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(60px) scaleX(0.96);
+  filter: blur(4px);
+  /* Uses standard transition property instead of real-time scroll tracking to prevent mobile stutter */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+              filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity, filter;
 }
 
-.animate-on-scroll {
-  animation: scrollFadeInWider linear both;
-  animation-timeline: view();
-  /* Widened the timeline track boundary so the effect scales and settles earlier */
-  animation-range: entry 0% cover 40%;
+/* Triggered beautifully via JS once the element enters the viewport */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+  filter: blur(0);
 }
 
 /* NAVIGATION */
@@ -558,6 +555,33 @@ Jashore, Khulna Division, Bangladesh
 <footer>
 &copy; 2026 Shahriyer Salman Swapno &bull; All Rights Reserved
 </footer>
+
+<!-- INTERSECTION OBSERVER FOR HIGH-PERFORMANCE MOBILE SCROLLING -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  
+  // High-performance configurations for mobile layout frame rate
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // Triggers slightly before element comes fully into view
+    threshold: 0.05 // Tiny trigger value for fast mobile swipes
+  };
+
+  const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Stops monitoring once visible to save phone battery
+      }
+    });
+  }, observerOptions);
+
+  animatedElements.forEach(element => {
+    scrollObserver.observe(element);
+  });
+});
+</script>
 
 <!-- JAVASCRIPT TYPING EFFECT -->
 <script>
