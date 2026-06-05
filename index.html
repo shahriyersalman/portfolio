@@ -240,9 +240,7 @@ nav a:hover{
 }
 .mobile-nav-drawer a:hover { color: var(--primary); }
 
-/* =======================================================
-   MODERN HIGH-END GLASS HERO MATRIX LAYOUT
-======================================================= */
+/* MODERN HIGH-END GLASS HERO MATRIX LAYOUT */
 .hero {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -710,9 +708,7 @@ footer{
   color: #64748B;
 }
 
-/* =======================================================
-   MODAL SLEEK CV OVERLAY STYLES
-======================================================= */
+/* MODAL SLEEK CV OVERLAY STYLES */
 .cv-modal-overlay {
   position: fixed;
   top: 0;
@@ -928,7 +924,7 @@ footer{
 
 .timeline-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
 
-.timeline-title { font-size: 0.95rem; font-weight: 600; color: #fff; }
+.timeline-title font-size: 0.95rem; font-weight: 600; color: #fff; }
 
 .timeline-meta { font-size: 0.85rem; color: var(--primary); font-weight: 500; }
 
@@ -938,13 +934,201 @@ footer{
 
 .timeline-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
 
+/* =======================================================
+   AI AGENT INTERACTIVE CHAT WIDGET COMPONENT
+======================================================= */
+.ai-fab-trigger {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+  cursor: pointer;
+  z-index: 1500;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.ai-fab-trigger:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.ai-fab-trigger svg {
+  color: white;
+  width: 26px;
+  height: 26px;
+}
+
+.ai-chat-panel {
+  position: fixed;
+  bottom: 105px;
+  right: 30px;
+  width: 380px;
+  height: 500px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  z-index: 1490;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ai-chat-panel.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.ai-panel-header {
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ai-header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-avatar-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.ai-header-meta h4 { font-size: 0.95rem; font-weight: 600; color: #fff; }
+.ai-header-meta p { font-size: 0.75rem; color: #34D399; display: flex; align-items: center; gap: 4px; }
+.ai-header-meta p::before { content:''; width:5px; height:5px; background:#34D399; border-radius:50%; display:inline-block; }
+
+.ai-close-btn {
+  background: none; border: none; color: #64748B; cursor: pointer; padding: 5px; transition: color 0.2s;
+}
+.ai-close-btn:hover { color: #fff; }
+
+.ai-messages-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.chat-bubble.agent {
+  background: rgba(255,255,255,0.05);
+  color: #E2E8F0;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.chat-bubble.user {
+  background: linear-gradient(135deg, var(--primary), #2563EB);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-input-form-area {
+  padding: 15px 20px;
+  background: rgba(0,0,0,0.2);
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  gap: 10px;
+}
+
+.ai-chat-input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.ai-chat-input:focus { border-color: var(--primary); }
+
+.ai-send-btn {
+  background: var(--primary);
+  border: none;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.ai-send-btn:hover { background: #2563EB; }
+
+/* AI LOADING WAVE INDICATOR */
+.ai-typing-wave {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+}
+.ai-typing-wave span {
+  width: 6px;
+  height: 6px;
+  background: #94A3B8;
+  border-radius: 50%;
+  animation: waveMotion 1.4s infinite ease-in-out both;
+}
+.ai-typing-wave span:nth-child(1) { animation-delay: -0.32s; }
+.ai-typing-wave span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes waveMotion {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
 /* RESPONSIVE LAYOUTS */
 @media(max-width:1024px){
   .bento-grid { grid-template-columns: repeat(2, 1fr); }
   .bento-wide { grid-column: span 2; }
   .contact-layout-split { grid-template-columns: 1fr; gap: 35px; }
   .hero-glass-container { grid-template-columns: 1fr; gap: 40px; padding: 40px; text-align: center; }
-  .hero-avatar-area { order: -1; } /* Pushes photo to top on tablet devices */
+  .hero-avatar-area { order: -1; }
   .btns { justify-content: center; }
   .typing-container { justify-content: center; }
 }
@@ -970,6 +1154,9 @@ footer{
   .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border-color); padding: 30px; }
   .profile-frame { max-width: 200px; }
   .cv-main { padding: 30px; }
+
+  .ai-chat-panel { width: calc(100vw - 40px); right: 20px; bottom: 95px; height: 400px; }
+  .ai-fab-trigger { bottom: 20px; right: 20px; width: 55px; height: 55px; }
 }
 
 @media(max-width: 540px) {
@@ -995,6 +1182,7 @@ footer{
   .main-title::after { background: #e2e8f0 !important; }
   .text-muted, .timeline-org, .timeline-desc, .contact-item strong { color: #475569 !important; }
   .cv-badge { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; color: #334155 !important; }
+  .ai-fab-trigger, .ai-chat-panel { display: none !important; }
 }
 </style>
 </head>
@@ -1023,6 +1211,7 @@ footer{
 </button>
 </nav>
 
+<!-- MOBILE SLIDEOUT DRAWER -->
 <div class="mobile-nav-drawer" id="mobileDrawer">
   <a href="#about" onclick="toggleMobileNav()">About</a>
   <a href="#skills" onclick="toggleMobileNav()">Skills</a>
@@ -1031,6 +1220,7 @@ footer{
   <a href="#contact" onclick="toggleMobileNav()">Contact</a>
 </div>
 
+<!-- HERO AREA SECTOR -->
 <section class="hero" id="home">
   <div class="hero-glass-container">
     
@@ -1185,6 +1375,7 @@ footer{
 </div>
 </section>
 
+<!-- CALL TO ACTION AREA -->
 <div class="animate-on-scroll" style="text-align: center; margin-bottom: -20px; padding: 0 8%;">
   <p style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
     Want to Make Portfolios like this?
@@ -1221,6 +1412,7 @@ footer{
 </div>
 </section>
 
+<!-- CV MODAL STRUCTURE -->
 <div class="cv-modal-overlay" id="cvModal" onclick="toggleCVModal(false)">
   <div class="cv-container" onclick="event.stopPropagation()">
     
@@ -1336,6 +1528,43 @@ footer{
     </div>
 
   </div>
+</div>
+
+<!-- =======================================================
+   AI INTERACTIVE FLOATING WIDGET ELEMENT STRUCTURE
+======================================================= */ -->
+<div class="ai-fab-trigger" id="aiFabTrigger" onclick="toggleAIChatPanel()" aria-label="Open AI Assistant">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</div>
+
+<div class="ai-chat-panel" id="aiChatPanel">
+  <div class="ai-panel-header">
+    <div class="ai-header-profile">
+      <div class="ai-avatar-node">AI</div>
+      <div class="ai-header-meta">
+        <h4>Swapno's Agent</h4>
+        <p>Online</p>
+      </div>
+    </div>
+    <button class="ai-close-btn" onclick="toggleAIChatPanel()" aria-label="Close Assistant">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+  
+  <div class="ai-messages-box" id="aiMessagesBox">
+    <div class="chat-bubble agent">
+      Hello! I am Shahriyer's AI Assistant. Ask me anything about his qualifications, web engineering projects, or expertise in systems optimization!
+    </div>
+  </div>
+
+  <form class="ai-input-form-area" id="aiInputForm" onsubmit="handleAISendMessage(event)">
+    <input type="text" id="aiInputField" class="ai-chat-input" placeholder="Ask something..." autocomplete="off" required>
+    <button type="submit" class="ai-send-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </button>
+  </form>
 </div>
 
 <footer>
@@ -1565,6 +1794,100 @@ function toggleCVModal(open) {
   } else {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+  }
+}
+
+/* =======================================================
+   AI INTERACTIVE CORE ENGINE JAVASCRIPT LOGIC
+======================================================= */
+function toggleAIChatPanel() {
+  const panel = document.getElementById('aiChatPanel');
+  if(panel) panel.classList.toggle('active');
+}
+
+// System Knowledge Injection Base Prompt for the Portfolio Agent
+const CONFIG_MOCKED_AGENT_PROMPT = {
+  name: "Shahriyer Salman Swapno",
+  education: "Diploma Student in Electrical Engineering at Jashore Polytechnic Institute",
+  skills: ["AutoCAD Electrical", "Circuit Design", "PC Diagnostics", "AI Pipelines", "JavaScript"],
+  location: "Jashore, Bangladesh"
+};
+
+async function handleAISendMessage(event) {
+  event.preventDefault();
+  const inputEl = document.getElementById('aiInputField');
+  const msgBox = document.getElementById('aiMessagesBox');
+  if(!inputEl || !msgBox) return;
+
+  const userText = inputEl.value.trim();
+  if(!userText) return;
+
+  // Render user message text node
+  const userMsgBubble = document.createElement('div');
+  userMsgBubble.className = 'chat-bubble user';
+  userMsgBubble.textContent = userText;
+  msgBox.appendChild(userMsgBubble);
+  inputEl.value = '';
+  msgBox.scrollTop = msgBox.scrollHeight;
+
+  // Append thinking layout wave animations
+  const typingIndicator = document.createElement('div');
+  typingIndicator.className = 'chat-bubble agent ai-typing-wave';
+  typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+  msgBox.appendChild(typingIndicator);
+  msgBox.scrollTop = msgBox.scrollHeight;
+
+  try {
+    /* 
+       PRO-TIP FOR LIVE PRODUCTION BLUEPRINT INTERFACE:
+       To connect this directly to an actual cloud AI execution engine, swap the block below with a native fetch pipeline:
+       
+       const response = await fetch('https://api.openai.com/v1/chat/completions', {
+         method: 'POST',
+         headers: {
+           'Content-Type': 'application/json',
+           'Authorization': 'Bearer YOUR_API_SECRET_KEY'
+         },
+         body: JSON.stringify({
+           model: 'gpt-4o-mini',
+           messages: [
+             { role: 'system', content: `You are an agent representing ${CONFIG_MOCKED_AGENT_PROMPT.name}...` },
+             { role: 'user', content: userText }
+           ]
+         })
+       });
+       const data = await response.json();
+       let aiResultText = data.choices[0].message.content;
+    */
+
+    // High fidelity diagnostic response simulator logic for local portfolio testing
+    await new Promise(resolve => setTimeout(resolve, 1200)); 
+    let aiResultText = "That's a great question! Shahriyer is highly proficient in that domain. Let him know your project requirements directly using the Contact form or WhatsApp links above!";
+
+    const textLower = userText.toLowerCase();
+    if(textLower.includes('skill') || textLower.includes('know') || textLower.includes('do')) {
+      aiResultText = `Shahriyer specializes in ${CONFIG_MOCKED_AGENT_PROMPT.skills.join(', ')}. He loves optimizing code pipelines and building local AI automation structures!`;
+    } else if (textLower.includes('education') || textLower.includes('study') || textLower.includes('college')) {
+      aiResultText = `Shahriyer is currently studying for his ${CONFIG_MOCKED_AGENT_PROMPT.education} in Bangladesh.`;
+    } else if (textLower.includes('contact') || textLower.includes('email') || textLower.includes('hire')) {
+      aiResultText = "You can easily click 'Email Me' in the hero box section or click his WhatsApp link to start collaborating right away!";
+    }
+
+    // Drop tracking wave and mount final response
+    msgBox.removeChild(typingIndicator);
+    const agentMsgBubble = document.createElement('div');
+    agentMsgBubble.className = 'chat-bubble agent';
+    agentMsgBubble.textContent = aiResultText;
+    msgBox.appendChild(agentMsgBubble);
+    msgBox.scrollTop = msgBox.scrollHeight;
+
+  } catch (err) {
+    msgBox.removeChild(typingIndicator);
+    const errorBubble = document.createElement('div');
+    errorBubble.className = 'chat-bubble agent';
+    errorBubble.style.color = '#EF4444';
+    errorBubble.textContent = "System transmission break. Please check endpoint configurations.";
+    msgBox.appendChild(errorBubble);
   }
 }
 
