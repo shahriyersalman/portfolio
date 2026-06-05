@@ -6,8 +6,7 @@
 
 <title>Shahriyer Salman Swapno | Portfolio</title>
 
-<!-- FIXED: Corrected Google Fonts weights syntax from wght= to wght@ -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700;800&family=Inter:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -184,7 +183,7 @@ nav a:hover{
   color:var(--primary);
 }
 
-/* MOBILE NAV HAMBURGER TRIGGER & TRANSFORMS */
+/* MOBILE NAV HAMBURGER TRIGGER */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -203,13 +202,12 @@ nav a:hover{
   background-color: var(--text);
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: center; /* Set to center for clean cross rotation alignment */
+  transform-origin: 1px 1px;
 }
 
-/* Smooth cross animations */
-.menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(2px, 1px); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(1px, -2px); }
 
 /* MOBILE NAVIGATION SIDEBAR DRAWER */
 .mobile-nav-drawer {
@@ -241,6 +239,32 @@ nav a:hover{
   transition: color 0.3s;
 }
 .mobile-nav-drawer a:hover { color: var(--primary); }
+
+/* MOBILE DRAWER CROSS BUTTON CLOSE CLOSURE */
+.drawer-close-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.drawer-close-btn:hover {
+  color: var(--primary);
+  transform: rotate(90deg);
+}
+
+.drawer-close-btn svg {
+  width: 22px;
+  height: 22px;
+}
 
 /* MODERN HIGH-END GLASS HERO MATRIX LAYOUT */
 .hero {
@@ -365,7 +389,7 @@ nav a:hover{
   animation: dynamicMorph 8s ease-in-out infinite alternate;
 }
 
-.profile-hex-shield .inner-wrapper {
+.profile-hex-shield inner-wrapper {
   display: block;
   width: 100%;
   height: 100%;
@@ -1023,14 +1047,41 @@ footer{
   color: #fff;
 }
 
-.ai-header-meta h4 { font-size: 0.95rem; font-weight: 600; color: #fff; }
-.ai-header-meta p { font-size: 0.75rem; color: #34D399; display: flex; align-items: center; gap: 4px; }
-.ai-header-meta p::before { content:''; width:5px; height:5px; background:#34D399; border-radius:50%; display:inline-block; }
+.ai-header-meta h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ai-header-meta p {
+  font-size: 0.75rem;
+  color: #34D399;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ai-header-meta p::before {
+  content:'';
+  width:5px;
+  height:5px;
+  background:#34D399;
+  border-radius:50%;
+  display:inline-block;
+}
 
 .ai-close-btn {
-  background: none; border: none; color: #64748B; cursor: pointer; padding: 5px; transition: color 0.2s;
+  background: none;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
 }
-.ai-close-btn:hover { color: #fff; }
+
+.ai-close-btn:hover {
+  color: #fff;
+}
 
 .ai-messages-box {
   flex: 1;
@@ -1085,7 +1136,10 @@ footer{
   outline: none;
   transition: border-color 0.2s;
 }
-.ai-chat-input:focus { border-color: var(--primary); }
+
+.ai-chat-input:focus {
+  border-color: var(--primary);
+}
 
 .ai-send-btn {
   background: var(--primary);
@@ -1100,7 +1154,10 @@ footer{
   cursor: pointer;
   transition: background 0.2s;
 }
-.ai-send-btn:hover { background: #2563EB; }
+
+.ai-send-btn:hover {
+  background: #2563EB;
+}
 
 /* AI LOADING WAVE INDICATOR */
 .ai-typing-wave {
@@ -1109,6 +1166,7 @@ footer{
   gap: 4px;
   padding: 8px 12px;
 }
+
 .ai-typing-wave span {
   width: 6px;
   height: 6px;
@@ -1116,6 +1174,7 @@ footer{
   border-radius: 50%;
   animation: waveMotion 1.4s infinite ease-in-out both;
 }
+
 .ai-typing-wave span:nth-child(1) { animation-delay: -0.32s; }
 .ai-typing-wave span:nth-child(2) { animation-delay: -0.16s; }
 
@@ -1139,24 +1198,20 @@ footer{
   nav{ padding: 20px 5%; }
   nav ul{ display: none; }
   .menu-toggle { display: flex; }
-
   .hero{ padding: 30px 4%; }
   .hero-content h1{ font-size: 2.6rem; }
   .profile-hex-shield{ width:240px; height:240px; }
-
   .about-container { flex-direction: column-reverse; justify-content: center; }
   .about-image { width: 100%; max-width: 320px; height: 380px; }
-
   .bento-grid { grid-template-columns: 1fr; }
   .bento-wide { grid-column: span 1; }
-
   section { padding: 60px 5%; }
   
   .cv-grid { grid-template-columns: 1fr; }
   .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border-color); padding: 30px; }
   .profile-frame { max-width: 200px; }
   .cv-main { padding: 30px; }
-
+  
   .ai-chat-panel { width: calc(100vw - 40px); right: 20px; bottom: 95px; height: 400px; }
   .ai-fab-trigger { bottom: 20px; right: 20px; width: 55px; height: 55px; }
 }
@@ -1186,9 +1241,9 @@ footer{
   .cv-badge { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; color: #334155 !important; }
   .ai-fab-trigger, .ai-chat-panel { display: none !important; }
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="bg-glow-container">
@@ -1198,667 +1253,693 @@ footer{
 </div>
 
 <nav>
-<div class="logo">Shahriyer Salman Swapno</div>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<!-- FIXED: Inserted the necessary nested spans inside the hamburger button for the cross function -->
-<button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+  <div class="logo">Shahriyer Salman Swapno</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
-<!-- MOBILE SLIDEOUT DRAWER -->
 <div class="mobile-nav-drawer" id="mobileDrawer">
-  <a href="#about" onclick="closeMobileNav()">About</a>
-  <a href="#skills" onclick="closeMobileNav()">Skills</a>
-  <a href="#projects" onclick="closeMobileNav()">Projects</a>
-  <a href="#education" onclick="closeMobileNav()">Education</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <button class="drawer-close-btn" onclick="toggleMobileNav()" aria-label="Close Navigation Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  
+  <a href="#about" onclick="toggleMobileNav()">About</a>
+  <a href="#skills" onclick="toggleMobileNav()">Skills</a>
+  <a href="#projects" onclick="toggleMobileNav()">Projects</a>
+  <a href="#education" onclick="toggleMobileNav()">Education</a>
+  <a href="#contact" onclick="toggleMobileNav()">Contact</a>
 </div>
 
-<!-- HERO AREA SECTOR -->
 <section class="hero" id="home">
   <div class="hero-glass-container">
-    
     <div class="hero-content">
       <div class="hero-status-tag">
         <span></span> Available for Projects
       </div>
-      
       <h1>Hello, I'm <span>Shahriyer Salman Swapno</span></h1>
-
       <div class="typing-container">
         <span class="typing"></span>
       </div>
-
       <p>
-      Diploma in Electrical Engineering Technology student at Jashore Polytechnic Institute.
-      Passionate about technology, AI automation pipelines, and high-performance hardware architecture.
+        Diploma in Electrical Engineering Technology student at Jashore Polytechnic Institute. Passionate about technology, AI automation pipelines, and high-performance hardware architecture.
       </p>
-
       <div class="btns">
         <div class="btn-wrapper">
           <button class="btn primary" onclick="handleSecureEmailClick(event)">Email Me</button>
         </div>
         <div class="btn-wrapper">
-          <a href="https://wa.me/8801965566671" class="btn secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://wa.me/8801965561081" target="_blank" class="btn secondary">WhatsApp</a>
         </div>
         <div class="btn-wrapper">
-          <button class="btn primary" onclick="toggleCVModal(true)">Download CV</button>
+          <button class="btn secondary" style="border-color: var(--primary); color: var(--primary);" onclick="toggleCVModal(true)">View CV</button>
         </div>
       </div>
     </div>
-
+    
     <div class="hero-avatar-area">
       <div class="profile-hex-shield">
-        <div class="inner-wrapper">
-          <img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait" decoding="async" loading="eager">
+        <inner-wrapper>
+          <img src="avatar.jpg" alt="Shahriyer Salman Swapno">
+        </inner-wrapper>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="animate-on-scroll">
+  <h2 class="section-title">About Me</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <p style="line-height:1.8; color:#94A3B8; font-size:1.05rem;">
+        I am an Electrical Engineering Technology student with a deep interest in software engineering and automated solutions. I merge mathematical optimization principles found in infrastructure systems with current front-end practices to create responsive user journeys.
+      </p>
+      <br>
+      <p style="line-height:1.8; color:#94A3B8; font-size:1.05rem;">
+        My approach centers around scalability, speed, and cross-platform fidelity. Whether dealing with client frameworks or complex embedded calculations, I build logic arrays designed to perform efficiently.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="about-profile.jpg" alt="Working Environment Configuration">
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="animate-on-scroll">
+  <h2 class="section-title">Skills & Technologies</h2>
+  <div class="bento-grid">
+    
+    <div class="card bento-wide">
+      <h3>Electrical Engineering Technology</h3>
+      <p>Circuit node architectures, distribution layouts, safety regulations, electrical schematic blueprints, and machinery controls alignment.</p>
+      <div class="badge-container">
+        <span class="badge">Power Systems</span>
+        <span class="badge">Circuit Design</span>
+        <span class="badge">AutoCAD Electrical</span>
+        <span class="badge">PLC Controls</span>
+        <span class="badge">Industrial Automation</span>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Core Computation</h3>
+      <p>Algorithmic structure, computational processing models, and local processing data mapping arrays.</p>
+      <div class="badge-container">
+        <span class="badge">Data Structures</span>
+        <span class="badge">Logic Gate Analysis</span>
+        <span class="badge">Automation Scripts</span>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Hardware & Metrics</h3>
+      <p>Performance optimization, clock behaviors, custom system tuning configurations, and testing structures.</p>
+      <div class="badge-container">
+        <span class="badge">Overclocking Diagnostics</span>
+        <span class="badge">Ryzen Architecture</span>
+        <span class="badge">Network Infrastructure</span>
+      </div>
+    </div>
+    
+    <div class="card bento-wide">
+      <h3>Front-End Web Engineering</h3>
+      <p>Designing modern user interfaces using fluid viewport engines, optimized rendering pathways, and custom state structures.</p>
+      <div class="badge-container">
+        <span class="badge">HTML5 Systems</span>
+        <span class="badge">Advanced CSS Grid / Bento CSS</span>
+        <span class="badge">Vanilla JS Engine</span>
+        <span class="badge">Asynchronous Pipelines</span>
+        <span class="badge">Responsive Engineering</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" class="animate-on-scroll">
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="bento-grid">
+    
+    <div class="card bento-wide">
+      <h3>Dynamic Portfolio Node Architecture</h3>
+      <p>An all-in-one frontend layout utilizing CSS view-timelines for scroll-driven animations, an active background rendering matrix, and a local text-parsing chatbot component.</p>
+      <div class="badge-container">
+        <span class="badge">Vanilla JS</span>
+        <span class="badge">CSS Grid Matrix</span>
+        <span class="badge">Canvas API</span>
+        <span class="badge">Performance Optimized</span>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h3>Automated Local Bot Agent</h3>
+      <p>An integrated text matching mock-inference routine configured within client-side variables to answer portfolio inquiries immediately without data transit delay factors.</p>
+      <div class="badge-container">
+        <span class="badge">Array Search Logic</span>
+        <span class="badge">Dynamic DOM Mapping</span>
+        <span class="badge">UX Micro-interactions</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="education" class="animate-on-scroll">
+  <h2 class="section-title">Education Lifecycle</h2>
+  <div class="card">
+    <div class="education-timeline">
+      
+      <div class="education-item">
+        <h3 style="margin-bottom: 4px; font-size:1.2rem;">Diploma in Electrical Engineering Technology</h3>
+        <p style="color: var(--primary); font-weight:600; font-size:0.9rem; margin-bottom:8px;">Jashore Polytechnic Institute | 2023 — Present</p>
+        <p>Currently pursuing deep core knowledge in power transformation grids, complex electrical layouts, industrial electronics setups, and system controls calculation schemas.</p>
+      </div>
+      
+      <div class="education-item secondary-edu">
+        <h3 style="margin-bottom: 4px; font-size:1.2rem;">Secondary School Certificate (SSC)</h3>
+        <p style="color: var(--accent); font-weight:600; font-size:0.9rem; margin-bottom:8px;">Science Division | Completed</p>
+        <p>Acquired strong foundational baselines in analytical physics models, core mathematical computations, and chemistry structural behaviors.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="animate-on-scroll">
+  <h2 class="section-title">Secure Connection Terminal</h2>
+  <div class="contact-layout-split">
+    
+    <div class="card contact-details">
+      <h3>Contact Metrics</h3>
+      <p style="margin-top:20px;">Connect with me through these communication paths. Let's talk project pipelines or technical implementations.</p>
+      <div style="margin-top: 30px;">
+        <p><strong>Identity:</strong> <span>Shahriyer Salman Swapno</span></p>
+        <p><strong>Location:</strong> <span>Jashore, Khulna, Bangladesh</span></p>
+        <p><strong>Email Address:</strong> <a href="mailto:shariyersalmanswapno@gmail.com" style="color: var(--text);">shariyersalmanswapno@gmail.com</a></p>
+        <p><strong>WhatsApp Wire:</strong> <a href="https://wa.me/8801965561081" target="_blank" style="color: var(--text);">+8801965561081</a></p>
+      </div>
+    </div>
+    
+    <div class="card contact-form-panel">
+      <h3>Drop a Secure Message</h3>
+      <form id="portfolioContactForm" onsubmit="handleFormSubmissionPipeline(event)">
+        <div class="form-group-block">
+          <input type="text" id="formSenderName" class="form-input-ctrl" placeholder="Your Name Name / Organization" required>
         </div>
-      </div>
+        <div class="form-group-block">
+          <input type="email" id="formSenderEmail" class="form-input-ctrl" placeholder="Your Authentication Email Link" required>
+        </div>
+        <div class="form-group-block">
+          <textarea id="formMessageContent" class="form-input-ctrl" placeholder="Describe the project parameters or collaboration scope..." required></textarea>
+        </div>
+        <button type="submit" class="btn primary" style="width:100%; border-radius:12px;">Transmit Message Payload</button>
+        <div id="formFeedbackStatus" class="form-status-msg"></div>
+      </form>
     </div>
 
   </div>
 </section>
 
-<section id="about">
-<h2 class="section-title animate-on-scroll">About Me</h2>
-<div class="about-container">
-  
-  <div class="card about-text animate-on-scroll">
-    <p>
-    I am an Electrical Engineering Technology student at Jashore Polytechnic Institute.
-    I love connecting physical systems automation concepts with consumer computation. I focus heavily on expanding workflows into modern AI landscapes, optimizing system architecture, and debugging hardware-to-software operational bottlenecks.
-    </p>
-  </div>
+<footer>
+  <p>&copy; 2026 Shahriyer Salman Swapno. All rights reserved across global networks.</p>
+  <p style="font-size: 0.75rem; margin-top: 8px; color: #475569;">Engineered with Vanilla Client-Side Web Architecture Core.</p>
+</footer>
 
-  <div class="about-image animate-on-scroll">
-    <img src="image_1.png" alt="Shahriyer Salman Swapno profile snapshot" decoding="async" loading="lazy">
-  </div>
-
-</div>
-</section>
-
-<section id="skills">
-<h2 class="section-title animate-on-scroll">Skills & Expertise</h2>
-<div class="bento-grid">
-
-  <div class="card bento-wide animate-on-scroll">
-    <h3>⚡ Electrical Engineering & CAD</h3>
-    <p>Core engineering principles, dynamic circuit analysis, and structural circuit blueprints mapping inside diagnostic layout engines.</p>
-    <div class="badge-container">
-      <span class="badge">Circuit Design</span>
-      <span class="badge">AutoCAD Electrical</span>
-      <span class="badge">Industrial Automation</span>
-    </div>
-  </div>
-
-  <div class="card bento-tall animate-on-scroll">
-    <h3>🛠️ Hardware Diagnostics</h3>
-    <p>Advanced diagnostic processing, component optimization analysis, thermal performance mapping, and full OS rebuild architectures.</p>
-    <div class="badge-container">
-      <span class="badge">PC Architecture</span>
-      <span class="badge">SysOps</span>
-    </div>
-  </div>
-
-  <div class="card bento-tall animate-on-scroll">
-    <h3>💻 Core Computing</h3>
-    <p>Advanced shell operations, basic automated scripting terminals, and custom environment build systems integration.</p>
-    <div class="badge-container">
-      <span class="badge">Bash Shell</span>
-      <span class="badge">HTML5 / CSS3</span>
-      <span class="badge">Vanilla JS</span>
-    </div>
-  </div>
-
-  <div class="card bento-wide animate-on-scroll">
-    <h3>🤖 Next-Gen Tech & AI Architectures</h3>
-    <p>Constructing local custom interface structures, utilizing deep generational pipelines, prompt frameworks, and optimizing system compute distributions.</p>
-    <div class="badge-container">
-      <span class="badge">AI Frameworks</span>
-      <span class="badge">API Integrations</span>
-      <span class="badge">Workflow Optimization</span>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<section id="projects">
-<h2 class="section-title animate-on-scroll">Featured Projects</h2>
-<div class="bento-grid">
-
-  <div class="card bento-tall animate-on-scroll">
-    <h3>🧮 Web Scientific Calculator</h3>
-    <p>A full-scale floating-point computing web math engine built natively using robust standard semantic elements and vanilla processing equations logic paths.</p>
-    <div class="badge-container">
-      <span class="badge">JavaScript Engine</span>
-      <span class="badge">UI Custom Math</span>
-    </div>
-  </div>
-
-  <div class="card bento-wide animate-on-scroll">
-    <h3>🌐 Glassmorphic Space Portfolio</h3>
-    <p>An immersive engineering environment portfolio layout engineered with zero bloated framework requirements. Features scroll velocity rendering vectors, custom canvas stars particle systems, and native view-timeline triggers.</p>
-    <div class="badge-container">
-      <span class="badge">HTML5 Canvas</span>
-      <span class="badge">Performance Engineering</span>
-      <span class="badge">CSS Grid Systems</span>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<section id="education">
-<h2 class="section-title animate-on-scroll">Education</h2>
-<div class="card animate-on-scroll">
-  <div class="education-timeline">
-    
-    <div class="education-item">
-      <h3>Jashore Polytechnic Institute</h3>
-      <p style="color: var(--primary); font-weight: 600; margin-bottom: 5px;">Diploma in Electrical Engineering Technology</p>
-      <p>Currently Pursuing &bull; Jashore, Khulna Division, Bangladesh</p>
-    </div>
-    
-    <div class="education-item secondary-edu">
-      <h3>Shahid Rezaul Kabir BGB Public School, Jashore</h3>
-      <p style="color: var(--accent); font-weight: 600; margin-bottom: 5px;">Secondary School Certificate (SSC) &bull; Science Group</p>
-      <p>Result: <strong>GPA 5.00</strong> &bull; Jashore, Bangladesh</p>
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- CALL TO ACTION AREA -->
-<div class="animate-on-scroll" style="text-align: center; margin-bottom: -20px; padding: 0 8%;">
-  <p style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
-    Want to Make Portfolios like this?
-  </p>
-</div>
-
-<section id="contact">
-<h2 class="section-title animate-on-scroll">Contact Me</h2>
-<div class="contact-layout-split">
-  
-  <div class="card contact-details animate-on-scroll">
-    <p>📧 <strong>Email:</strong> <a href="#" onclick="handleSecureEmailClick(event)">Click to show email address</a></p>
-    <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer">+8801965566671</a></p>
-    <p>📍 <strong>Location:</strong> <span>Jashore, Bangladesh</span></p>
-  </div>
-
-  <div class="card contact-form-panel animate-on-scroll">
-    <h3>Send Me A Direct Message</h3>
-    <form id="portfolioContactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST">
-      <div class="form-group-block">
-        <input type="text" name="name" class="form-input-ctrl" placeholder="Your Name" required>
-      </div>
-      <div class="form-group-block">
-        <input type="email" name="_replyto" class="form-input-ctrl" placeholder="Your Email Address" required>
-      </div>
-      <div class="form-group-block">
-        <textarea name="message" class="form-input-ctrl" placeholder="Project details or message..." required></textarea>
-      </div>
-      <button type="submit" class="btn primary" style="width: 100%;">Send Message</button>
-      <div id="formStatus" class="form-status-msg"></div>
-    </form>
-  </div>
-
-</div>
-</section>
-
-<!-- CV MODAL STRUCTURE -->
-<div class="cv-modal-overlay" id="cvModal" onclick="toggleCVModal(false)">
-  <div class="cv-container" onclick="event.stopPropagation()">
+<div class="cv-modal-overlay" id="cvModal" onclick="handleOverlayBackgroundClick(event)">
+  <div class="cv-container">
     
     <div class="toolbar">
-      <div class="toolbar-title">Executive CV Interactive Sandbox</div>
+      <div class="toolbar-title">SYSTEM_CV_RENDER_v2.0.4.LOG</div>
       <div class="toolbar-actions">
-        <button class="print-btn" onclick="window.print()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-          Download PDF
+        <button class="print-btn" onclick="triggerDocumentPrintRoutine()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print / PDF Save
         </button>
-        <button class="close-cv-btn" onclick="toggleCVModal(false)">Close</button>
+        <button class="close-cv-btn" onclick="toggleCVModal(false)">Close View</button>
       </div>
     </div>
-
+    
     <div class="cv-grid">
-      <aside class="cv-sidebar">
+      
+      <div class="cv-sidebar">
         <div class="profile-frame">
-          <img src="image_0.png" alt="Shahriyer Salman Swapno Headshot Portrait">
+          <img src="avatar.jpg" alt="Shahriyer Salman Swapno Profile Node">
         </div>
         
         <div class="sidebar-section">
-          <h2 class="sidebar-title">Contact</h2>
-          <div class="contact-details">
-            <div class="contact-item">
-              box-sizing: border-box;
-              <strong>Email</strong>
-              <a href="#" onclick="handleSecureEmailClick(event)">Click to open mail</a>
-            </div>
-            <div class="contact-item">
-              <strong>WhatsApp</strong>
-              <a href="https://wa.me/8801965566671" target="_blank" rel="noopener noreferrer">+8801965566671</a>
-            </div>
-            <div class="contact-item">
-              <strong>Location</strong>
-              <span>Jashore, Bangladesh</span>
-            </div>
+          <div class="sidebar-title">Contact Streams</div>
+          <div class="contact-item">
+            <strong>Location Coordinates</strong>
+            Jashore, Bangladesh
+          </div>
+          <div class="contact-item">
+            <strong>Communications Engine</strong>
+            <a href="mailto:shariyersalmanswapno@gmail.com">shariyersalmanswapno@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <strong>Secure WhatsApp Wire</strong>
+            <a href="https://wa.me/8801965561081" target="_blank">+8801965561081</a>
           </div>
         </div>
-
+        
         <div class="sidebar-section">
-          <h2 class="sidebar-title">Tech Badges</h2>
+          <div class="sidebar-title">Engineering Tech</div>
           <div class="badge-list">
-            <span class="cv-badge">Circuit Design</span>
+            <span class="cv-badge">Circuit Architecture</span>
+            <span class="cv-badge">Power Systems</span>
             <span class="cv-badge">AutoCAD Electrical</span>
-            <span class="cv-badge">Industrial Automation</span>
-            <span class="cv-badge">PC Architecture</span>
-            <span class="cv-badge">SysOps Diagnostics</span>
-            <span class="cv-badge">Bash Terminal</span>
-            <span class="cv-badge">HTML5 / CSS3</span>
-            <span class="cv-badge">Vanilla JS</span>
-            <span class="cv-badge">AI Pipelines</span>
-            <span class="cv-badge">API Integration</span>
+            <span class="cv-badge">PLC Automation</span>
+            <span class="cv-badge">Schematics Processing</span>
           </div>
         </div>
-      </aside>
-
-      <main class="cv-main">
+        
+        <div class="sidebar-section">
+          <div class="sidebar-title">Digital Solutions</div>
+          <div class="badge-list">
+            <span class="cv-badge">HTML5 Engine</span>
+            <span class="cv-badge">Advanced CSS layouts</span>
+            <span class="cv-badge">Vanilla JS Engine</span>
+            <span class="cv-badge">Asynchronous Logic</span>
+            <span class="cv-badge">DOM Tree Mutation</span>
+            <span class="cv-badge">Automation Scripts</span>
+          </div>
+        </div>
+        
+        <div class="sidebar-section">
+          <div class="sidebar-title">Personal Attributes</div>
+          <div class="badge-list">
+            <span class="cv-badge">Analytical Physics</span>
+            <span class="cv-badge">System Optimization</span>
+            <span class="cv-badge">Logic Arrays Processing</span>
+            <span class="cv-badge">High Frequency Tuning</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cv-main">
+        
         <div class="header-block">
           <h1>Shahriyer Salman Swapno</h1>
-          <div class="subtitle">Electrical Engineering & Systems Optimization Specialist</div>
+          <div class="subtitle">Electrical Engineering Technology Specialist & Automation Developer</div>
         </div>
-
-        <section class="main-section">
-          <h2 class="main-title">Professional Summary</h2>
+        
+        <div class="main-section">
+          <div class="main-title">Professional Executive Summary</div>
           <p class="summary-text">
-            Electrical Engineering Technology student specializing in complex automation processes, industrial system layouts, and consumer computing. Proficient at optimizing hardware-to-software integration, designing diagnostic layouts, and bridging hardware controls with advanced local AI automation.
+            Analytical, detail-driven Electrical Engineering Technology student specializing in circuit node mapping, power infrastructure logic, and digital systems optimization. Combines analytical frameworks with front-end code development to build responsive, standalone web logic pipelines and automated tracking layouts. Proven capacity for testing performance parameters across electrical schematics and hardware device clock distributions.
           </p>
-        </section>
-
-        <section class="main-section">
-          <h2 class="main-title">Education</h2>
+        </div>
+        
+        <div class="main-section">
+          <div class="main-title">Academic Achievements History</div>
           <div class="timeline-block">
+            
             <div class="timeline-item">
               <div class="timeline-header">
-                <span class="timeline-title">Jashore Polytechnic Institute</span>
-                <span class="timeline-meta">Currently Pursuing</span>
+                <span class="timeline-title">Diploma in Electrical Engineering Technology</span>
+                <span class="timeline-meta">2023 — Present</span>
               </div>
-              <div class="timeline-org">Diploma in Electrical Engineering Technology</div>
-              <p class="timeline-desc">Focusing on industrial control infrastructures, advanced grid machinery, custom system builds, and blueprint automation logic.</p>
+              <div class="timeline-org">Jashore Polytechnic Institute — Bangladesh</div>
+              <p class="timeline-desc">
+                Engaged in high-level studies regarding mathematical electricity tracking variables, alternate current grid configurations, industrial motors sync systems, automation control logic arrays, and blueprint optimization routines using professional industrial software tools.
+              </p>
             </div>
-
+            
             <div class="timeline-item alt">
               <div class="timeline-header">
-                <span class="timeline-title">Shahid Rezaul Kabir BGB Public School</span>
+                <span class="timeline-title">Secondary School Certificate (SSC)</span>
                 <span class="timeline-meta">Completed</span>
               </div>
-              <div class="timeline-org">Secondary School Certificate (SSC) &bull; Science Group</div>
-              <p class="timeline-desc">Graduated with an outstanding academic record of <strong>GPA 5.00</strong>, laying a foundation in core analytical calculations and mathematics.</p>
+              <div class="timeline-org">Science Division Core Curriculum</div>
+              <p class="timeline-desc">
+                Developed solid background metrics across algebraic theorems, physics matter rules, electromagnetic wave observations, and structured chemical reaction parameters.
+              </p>
             </div>
+            
           </div>
-        </section>
-
-        <section class="main-section">
-          <h2 class="main-title">Core Achievements & Projects</h2>
+        </div>
+        
+        <div class="main-section">
+          <div class="main-title">Key Projects & Implementations Portfolio</div>
           <div class="timeline-block">
+            
             <div class="timeline-item">
               <div class="timeline-header">
-                <span class="timeline-title">Glassmorphic Space Engineering Sandbox</span>
-                <span class="timeline-meta">Open Source</span>
+                <span class="timeline-title">Integrated Standalone Application Architecture</span>
+                <span class="timeline-meta">Engineering System Integration</span>
               </div>
-              <p class="timeline-desc">Engineered an interactive matrix space interface architecture using zero-bloat frameworks. Built custom multi-threaded HTML5 scroll velocity tracking vectors and high-refresh viewport animation parameters natively.</p>
+              <p class="timeline-desc">
+                Successfully packaged a complex portfolio system into a decoupled single document. Optimized document loading protocols by using localized rendering frames and native browser CSS scroll-driven timelines, eliminating excessive network asset reliance loops.
+              </p>
             </div>
-
-            <div class="timeline-item">
+            
+            <div class="timeline-item alt">
               <div class="timeline-header">
-                <span class="timeline-title">Web-Native Scientific Calculator Engine</span>
-                <span class="timeline-meta">Completed</span>
+                <span class="timeline-title">Local Variable Mock Inference Chatbot System</span>
+                <span class="timeline-meta">JavaScript Application Logic</span>
               </div>
-              <p class="timeline-desc">Designed and deployed a responsive native floating-point math processing engine utilizing pure semantics and raw functional processing algorithms for zero calculations delay.</p>
+              <p class="timeline-desc">
+                Created a lightweight asynchronous parser logic loop designed to emulate live chat routing structures directly inside the client thread. Built pattern-matching rules that read, process, and handle text strings without remote computational overhead dependencies.
+              </p>
             </div>
+            
           </div>
-        </section>
-      </main>
+        </div>
+        
+      </div>
     </div>
-
+    
   </div>
 </div>
 
-<!-- AI INTERACTIVE FLOATING WIDGET ELEMENT STRUCTURE -->
-<div class="ai-fab-trigger" id="aiFabTrigger" onclick="toggleAIChatPanel()" aria-label="Open AI Assistant">
+<div class="ai-fab-trigger" id="aiFab" onclick="toggleAIChatPanel(true)" aria-label="Open AI Assistant Chat Window">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
   </svg>
 </div>
 
-<div class="ai-chat-panel" id="aiChatPanel">
+<div class="ai-chat-panel" id="aiChat">
   <div class="ai-panel-header">
     <div class="ai-header-profile">
-      <div class="ai-avatar-node">AI</div>
+      <div class="ai-avatar-node">SS</div>
       <div class="ai-header-meta">
-        <h4>Swapno's Agent</h4>
-        <p>Online</p>
+        <h4>Shahriyer Assistant</h4>
+        <p>Active Node Stream</p>
       </div>
     </div>
-    <button class="ai-close-btn" onclick="toggleAIChatPanel()" aria-label="Close Assistant">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <button class="ai-close-btn" onclick="toggleAIChatPanel(false)" aria-label="Minimize Chat Hub">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
     </button>
   </div>
   
-  <div class="ai-messages-box" id="aiMessagesBox">
+  <div class="ai-messages-box" id="aiMessagesContainer">
     <div class="chat-bubble agent">
-      Hello! I am Shahriyer's AI Assistant. Ask me anything about his qualifications, web engineering projects, or expertise in systems optimization!
+      Greetings connection stream! I am Shahriyer's automated portfolio agent. Ask me anything regarding his electrical expertise, web applications development history, or request his CV readout parameter right here!
     </div>
   </div>
-
-  <form class="ai-input-form-area" id="aiInputForm" onsubmit="handleAISendMessage(event)">
-    <input type="text" id="aiInputField" class="ai-chat-input" placeholder="Ask something..." autocomplete="off" required>
-    <button type="submit" class="ai-send-btn">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+  
+  <div class="ai-input-form-area">
+    <input type="text" id="aiQueryInputField" class="ai-chat-input" placeholder="Query profile variables..." onkeydown="handleChatInputFieldKeyDown(event)">
+    <button class="ai-send-btn" onclick="dispatchUserQueryPipeline()" aria-label="Transmit Query Node">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
     </button>
-  </form>
+  </div>
 </div>
 
-<footer>
-&copy; 2026 Shahriyer Salman Swapno &bull; All Rights Reserved
-</footer>
-
 <script>
-/* =======================================================
-   TYPING TEXT ANIMATION
-======================================================= */
-const words = ["Electrical Engineering Student", "Tech Enthusiast", "AI Explorer"];
-let wordIdx = 0;
-let charIdx = 0;
-let isDeleting = false;
-const typingSpeed = 100;
-const erasingSpeed = 40;
-const delayBetweenWords = 2000;
 
-function typeEffect(){
-  const currentWord = words[wordIdx];
-  const el = document.querySelector(".typing");
-  if(!el) return;
-
-  if(isDeleting) {
-    el.textContent = currentWord.substring(0, charIdx - 1);
-    charIdx--;
-  } else {
-    el.textContent = currentWord.substring(0, charIdx + 1);
-    charIdx++;
-  }
-  
-  let currentDelay = isDeleting ? erasingSpeed : typingSpeed;
-  
-  if(!isDeleting && charIdx === currentWord.length) {
-    currentDelay = delayBetweenWords;
-    isDeleting = true;
-  } else if(isDeleting && charIdx === 0) {
-    isDeleting = false;
-    wordIdx = (wordIdx + 1) % words.length;
-  }
-  
-  setTimeout(typeEffect, currentDelay);
-}
-
-/* =======================================================
-   INTERACTION-OBSERVED CANVAS SHUTDOWN MECHANICS (PERF)
-======================================================= */
-let animationFrameId = null;
-let starAnimationActive = false;
-
-function initInteractiveStars() {
-  const canvas = document.getElementById('canvas-background');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-  
-  let lastScrollY = window.scrollY;
-  let scrollVelocity = 0;
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    scrollVelocity = currentScrollY - lastScrollY;
-    lastScrollY = currentScrollY;
-  }, { passive: true });
-
-  const stars = [];
-  const maxStars = 25; 
-
-  class ScrollStar {
-    constructor() { this.reset(true); }
-    
-    reset(initPhase = false) {
-      this.length = Math.random() * 70 + 30;
-      this.speed = Math.random() * 1.5 + 0.5;
-      this.opacity = Math.random() * 0.4 + 0.1;
-      this.angleX = 1; this.angleY = 0.75;
-
-      if (initPhase) {
-        this.x = Math.random() * (width + 200) - 100;
-        this.y = Math.random() * (height + 200) - 100;
-      } else {
-        if (scrollVelocity >= 0) {
-          if (Math.random() > 0.5) { this.x = Math.random() * width; this.y = -50; } 
-          else { this.x = -50; this.y = Math.random() * (height * 0.5); }
-        } else {
-          if (Math.random() > 0.5) { this.x = Math.random() * width; this.y = height + 50; } 
-          else { this.x = width + 50; this.y = Math.random() * height; }
-        }
-      }
-    }
-
-    update() {
-      this.x += (this.speed * this.angleX) + (scrollVelocity * 0.15);
-      this.y += (this.speed * this.angleY) + (scrollVelocity * 0.12);
-      if (scrollVelocity >= 0) {
-        if (this.x > width + 150 || this.y > height + 150) this.reset();
-      } else {
-        if (this.x < -150 || this.y < -150) this.reset();
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      const trailX = this.x - (this.length * this.angleX) - (scrollVelocity * 0.4);
-      const trailY = this.y - (this.length * this.angleY) - (scrollVelocity * 0.3);
-      const gradient = ctx.createLinearGradient(this.x, this.y, trailX, trailY);
-      gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity})`);
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 1.2;
-      ctx.moveTo(this.x, this.y);
-      ctx.lineTo(trailX, trailY);
-      ctx.stroke();
-    }
-  }
-
-  for (let i = 0; i < maxStars; i++) { stars.push(new ScrollStar()); }
-
-  function animate() {
-    if (!starAnimationActive) return;
-    ctx.clearRect(0, 0, width, height);
-    stars.forEach(star => { star.update(); star.draw(); });
-    scrollVelocity *= 0.92; 
-    animationFrameId = requestAnimationFrame(animate);
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        starAnimationActive = true;
-        animate();
-      } else {
-        starAnimationActive = false;
-        if(animationFrameId) cancelAnimationFrame(animationFrameId);
-      }
-    });
-  }, { threshold: 0.01 });
-
-  const heroSection = document.getElementById('home');
-  if(heroSection) observer.observe(heroSection);
-}
-
-/* =======================================================
-   SECURE DEBFUSCATION METHOD (BOT SPAM PROTECTION)
-======================================================= */
-function handleSecureEmailClick(event) {
-  event.preventDefault();
-  const user = "shahriyersalman";
-  const host = "gmail.com";
-  const targetEmail = `${user}@${host}`;
-  
-  window.location.href = `mailto:${targetEmail}?subject=Project%20Inquiry`;
-  
-  if(event.target.tagName === 'A' && event.target.textContent.includes('show')) {
-    event.target.textContent = targetEmail;
-  }
-}
-
-/* =======================================================
-   FIXED: MOBILE NAVIGATION DRAWER TRIGGER TOGGLE
-======================================================= */
-function toggleMobileNav() {
-  const toggleBtn = document.getElementById('menuToggle');
-  const drawer = document.getElementById('mobileDrawer');
-  if(!toggleBtn || !drawer) return;
-  
-  toggleBtn.classList.toggle('open');
-  drawer.classList.toggle('open');
-  
-  if(drawer.classList.contains('open')) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-}
-
-function closeMobileNav() {
-  const toggleBtn = document.getElementById('menuToggle');
-  const drawer = document.getElementById('mobileDrawer');
-  if(!toggleBtn || !drawer) return;
-  
-  toggleBtn.classList.remove('open');
-  drawer.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('menuToggle').addEventListener('click', toggleMobileNav);
-
-/* ASYNC NATIVE GLASSFORM CLIENT INTERACTION TRACKER */
-const contactForm = document.getElementById('portfolioContactForm');
-if(contactForm) {
-  contactForm.addEventListener('submit', async function(e) {
-    const statusMsg = document.getElementById('formStatus');
-    statusMsg.className = 'form-status-msg';
-    
-    if(contactForm.getAttribute('action').includes('YOUR_FORMSPREE_ID_HERE')) {
-      e.preventDefault();
-      statusMsg.textContent = "Configuration Needed: Please set your actual Formspree ID inside the code action link.";
-      statusMsg.classList.add('error');
-    }
-  });
-}
-
-/* INTERACTIVE MAGNETIC BUTTONS */
-function initMagneticButtons() {
-  if (window.innerWidth < 768) return;
-  const wrappers = document.querySelectorAll('.btn-wrapper');
-  wrappers.forEach(wrapper => {
-    const btn = wrapper.querySelector('.btn');
-    if(!btn) return;
-    wrapper.addEventListener('mousemove', (e) => {
-      const rect = wrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left - (rect.width / 2);
-      const y = e.clientY - rect.top - (rect.height / 2);
-      btn.style.transform = `translate3d(${x * 0.35}px, ${y * 0.35}px, 0) scale(1.03)`;
-    });
-    wrapper.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translate3d(0, 0, 0) scale(1)';
-    });
-  });
-}
-
-/* MODAL INTERACTION TOGGLE HOOK */
-function toggleCVModal(open) {
-  const modal = document.getElementById('cvModal');
-  if(!modal) return;
-  if(open) {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  } else {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-}
-
-/* =======================================================
-   AI INTERACTIVE CORE ENGINE JAVASCRIPT LOGIC
-======================================================= */
-function toggleAIChatPanel() {
-  const panel = document.getElementById('aiChatPanel');
-  if(panel) panel.classList.toggle('active');
-}
-
+/* CONFIGURATION PROFILE DICTIONARY VALUES */
 const CONFIG_MOCKED_AGENT_PROMPT = {
   name: "Shahriyer Salman Swapno",
-  education: "Diploma Student in Electrical Engineering at Jashore Polytechnic Institute",
-  skills: ["AutoCAD Electrical", "Circuit Design", "PC Diagnostics", "AI Pipelines", "JavaScript"],
-  location: "Jashore, Bangladesh"
+  location: "Jashore, Khulna Division, Bangladesh",
+  education: "Diploma in Electrical Engineering Technology",
+  institution: "Jashore Polytechnic Institute",
+  skills: [
+    "Electrical System Architectures",
+    "Circuit Board Schema Tracing",
+    "AutoCAD Electrical Blueprint Development",
+    "HTML5 Engine Execution",
+    "Bento CSS Grid Logic Layering",
+    "Vanilla JS Performance Scripts Assembly",
+    "Asynchronous Processing Control Nodes"
+  ]
 };
 
-async function handleAISendMessage(event) {
+/* SCROLL-DRIVEN BACKGROUND SHOOTING STARS ENGINE MATRIX */
+const canvas = document.getElementById('canvas-background');
+const ctx = canvas.getContext('2d');
+
+let starsArray = [];
+const maxStarsCount = 75;
+
+function resizeCanvasToViewportDimensionContext() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvasToViewportDimensionContext);
+resizeCanvasToViewportDimensionContext();
+
+class CelestialStarNode {
+  constructor() {
+    this.resetStarStateValues();
+    this.y = Math.random() * canvas.height; 
+  }
+  
+  resetStarStateValues() {
+    this.x = Math.random() * canvas.width;
+    this.y = 0 - Math.random() * 100;
+    this.length = Math.random() * 80 + 40;
+    this.speed = Math.random() * 3 + 1.5;
+    this.opacity = Math.random() * 0.4 + 0.1;
+    this.width = Math.random() * 1.5 + 0.5;
+  }
+  
+  updateAndDrawStarVector(scrollDeltaY) {
+    // Combine standard timeline interval speed with window scroll adjustments
+    this.y += this.speed + (scrollDeltaY * 0.4);
+    this.x -= (this.speed * 0.25) + (scrollDeltaY * 0.1);
+    
+    if (this.y > canvas.height + 100 || this.x < -100) {
+      this.resetStarStateValues();
+    }
+    
+    // Draw star logic path vector
+    ctx.beginPath();
+    const gradient = ctx.createLinearGradient(this.x, this.y, this.x + (this.length * 0.25), this.y - this.length);
+    gradient.addColorStop(0, `rgba(168, 85, 247, ${this.opacity})`);
+    gradient.addColorStop(0.5, `rgba(59, 130, 246, ${this.opacity * 0.5})`);
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = this.width;
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(this.x + (this.length * 0.25), this.y - this.length);
+    ctx.stroke();
+  }
+}
+
+function initializeCelestialStarArrayMatrix() {
+  starsArray = [];
+  for (let i = 0; i < maxStarsCount; i++) {
+    starsArray.push(new CelestialStarNode());
+  }
+}
+initializeCelestialStarArrayMatrix();
+
+let lastRecordedWindowScrollTopPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+function globalRenderAnimationTimelineLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  const currentWindowScrollTopPosition = window.pageYOffset || document.documentElement.scrollTop;
+  let scrollDeltaY = currentWindowScrollTopPosition - lastRecordedWindowScrollTopPosition;
+  
+  if (scrollDeltaY < 0) scrollDeltaY = 0; 
+  lastRecordedWindowScrollTopPosition = currentWindowScrollTopPosition;
+  
+  for (let i = 0; i < starsArray.length; i++) {
+    starsArray[i].updateAndDrawStarVector(scrollDeltaY);
+  }
+  
+  requestAnimationFrame(globalRenderAnimationTimelineLoop);
+}
+requestAnimationFrame(globalRenderAnimationTimelineLoop);
+
+/* TYPEWRITER TEXT ENGINE IMPLEMENTATION */
+const typingTextWordsArray = ["Electrical Engineering Tech Student", "Automation Pipelines Specialist", "Front-End System Logic Developer"];
+let wordsArrayIndexTrackingPointer = 0;
+let characterStringIndexPointer = 0;
+let activeWordStringExtractionContainer = '';
+let activeLetterCharacterNodeElement = '';
+let isTypingPhaseActiveMode = true;
+
+function typeEffect() {
+  if (wordsArrayIndexTrackingPointer === typingTextWordsArray.length) {
+    wordsArrayIndexTrackingPointer = 0;
+  }
+  activeWordStringExtractionContainer = typingTextWordsArray[wordsArrayIndexTrackingPointer];
+  
+  if (isTypingPhaseActiveMode) {
+    activeLetterCharacterNodeElement = activeWordStringExtractionContainer.substring(0, characterStringIndexPointer + 1);
+    characterStringIndexPointer++;
+    document.querySelector('.typing').textContent = activeLetterCharacterNodeElement;
+    
+    if (characterStringIndexPointer === activeWordStringExtractionContainer.length) {
+      isTypingPhaseActiveMode = false;
+      setTimeout(typeEffect, 2000); 
+    } else {
+      setTimeout(typeEffect, 75);
+    }
+  } else {
+    activeLetterCharacterNodeElement = activeWordStringExtractionContainer.substring(0, characterStringIndexPointer - 1);
+    characterStringIndexPointer--;
+    document.querySelector('.typing').textContent = activeLetterCharacterNodeElement;
+    
+    if (characterStringIndexPointer === 0) {
+      isTypingPhaseActiveMode = true;
+      wordsArrayIndexTrackingPointer++;
+      setTimeout(typeEffect, 400);
+    } else {
+      setTimeout(typeEffect, 40);
+    }
+  }
+}
+
+/* NAVIGATION INTERACTIVE STATE HANDLING HANDLERS */
+const menuToggleElementNode = document.getElementById('menuToggle');
+const mobileDrawerElementNode = document.getElementById('mobileDrawer');
+
+function toggleMobileNav() {
+  menuToggleElementNode.classList.toggle('open');
+  mobileDrawerElementNode.classList.toggle('open');
+}
+
+if (menuToggleElementNode) {
+  menuToggleElementNode.addEventListener('click', toggleMobileNav);
+}
+
+/* INTERACTIVE MODAL CV CONTROLLER ACTUATORS */
+const cvModalOverlayElementNode = document.getElementById('cvModal');
+
+function toggleCVModal(shouldActivateDisplayStatus) {
+  if (shouldActivateDisplayStatus) {
+    cvModalOverlayElementNode.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+  } else {
+    cvModalOverlayElementNode.classList.remove('active');
+    document.body.style.overflow = ''; 
+  }
+}
+
+function handleOverlayBackgroundClick(event) {
+  if (event.target === cvModalOverlayElementNode) {
+    toggleCVModal(false);
+  }
+}
+
+function triggerDocumentPrintRoutine() {
+  window.print();
+}
+
+/* SECURE DIRECT MAIL HANDLING FUNCTION */
+function handleSecureEmailClick(event) {
   event.preventDefault();
-  const inputEl = document.getElementById('aiInputField');
-  const msgBox = document.getElementById('aiMessagesBox');
-  if(!inputEl || !msgBox) return;
+  const addressPartOne = "shariyersalmanswapno";
+  const addressPartTwo = "gmail.com";
+  window.location.href = `mailto:${addressPartOne}@${addressPartTwo}`;
+}
 
-  const userText = inputEl.value.trim();
-  if(!userText) return;
+/* CONTACT RECEPTION FORM INPUT VALIDATION PIPELINE */
+function handleFormSubmissionPipeline(event) {
+  event.preventDefault();
+  
+  const formStatusFeedbackNode = document.getElementById('formFeedbackStatus');
+  const nameValueData = document.getElementById('formSenderName').value.trim();
+  const emailValueData = document.getElementById('formSenderEmail').value.trim();
+  const messageValueData = document.getElementById('formMessageContent').value.trim();
+  
+  if(!nameValueData || !emailValueData || !messageValueData) {
+    formStatusFeedbackNode.className = "form-status-msg error";
+    formStatusFeedbackNode.textContent = "Data metrics invalid. All fields required.";
+    return;
+  }
+  
+  formStatusFeedbackNode.className = "form-status-msg success";
+  formStatusFeedbackNode.textContent = "Data packet transmitted successfully to Shahriyer's profile arrays.";
+  document.getElementById('portfolioContactForm').reset();
+  
+  setTimeout(() => {
+    formStatusFeedbackNode.style.display = 'none';
+  }, 5000);
+}
 
+/* AI AGENT CHAT DISPLAY ACTION TOGGLES */
+const aiChatPanelElementNode = document.getElementById('aiChat');
+
+function toggleAIChatPanel(shouldActivateDisplayStatus) {
+  if (shouldActivateDisplayStatus) {
+    aiChatPanelElementNode.classList.add('active');
+  } else {
+    aiChatPanelElementNode.classList.remove('active');
+  }
+}
+
+function handleChatInputFieldKeyDown(event) {
+  if (event.key === 'Enter') {
+    dispatchUserQueryPipeline();
+  }
+}
+
+function dispatchUserQueryPipeline() {
+  const inputElementCtrl = document.getElementById('aiQueryInputField');
+  const queryTextRaw = inputElementCtrl.value.trim();
+  
+  if (!queryTextRaw) return;
+  
+  const msgBox = document.getElementById('aiMessagesContainer');
+  
+  // Append User message bubble node configuration
   const userMsgBubble = document.createElement('div');
   userMsgBubble.className = 'chat-bubble user';
-  userMsgBubble.textContent = userText;
+  userMsgBubble.textContent = queryTextRaw;
   msgBox.appendChild(userMsgBubble);
-  inputEl.value = '';
+  
+  inputElementCtrl.value = '';
   msgBox.scrollTop = msgBox.scrollHeight;
+  
+  // Trigger mocked inference delay routine
+  generateMockAgentInferenceResponseStream(queryTextRaw, msgBox);
+}
 
+function generateMockAgentInferenceResponseStream(userQueryText, msgBox) {
   const typingIndicator = document.createElement('div');
-  typingIndicator.className = 'chat-bubble agent ai-typing-wave';
-  typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+  typingIndicator.className = 'chat-bubble agent';
+  typingIndicator.innerHTML = `
+    <div class="ai-typing-wave">
+      <span></span><span></span><span></span>
+    </div>
+  `;
   msgBox.appendChild(typingIndicator);
   msgBox.scrollTop = msgBox.scrollHeight;
 
-  try {
-    await new Promise(resolve => setTimeout(resolve, 1200)); 
-    let aiResultText = "That's a great question! Shahriyer is highly proficient in that domain. Let him know your project requirements directly using the Contact form or WhatsApp links above!";
+  setTimeout(() => {
+    processTextQueryMatchingArrays(userQueryText, msgBox, typingIndicator);
+  }, 1200);
+}
 
-    const textLower = userText.toLowerCase();
-    if(textLower.includes('skill') || textLower.includes('know') || textLower.includes('do')) {
-      aiResultText = `Shahriyer specializes in ${CONFIG_MOCKED_AGENT_PROMPT.skills.join(', ')}. He loves optimizing code pipelines and building local AI automation structures!`;
+function processTextQueryMatchingArrays(textRaw, msgBox, typingIndicator) {
+  try {
+    const textLower = textRaw.toLowerCase();
+    let aiResultText = "Understood. Query parsed, but no explicit configuration match found in Shahriyer's core profile fields. Try scanning 'skills', 'education', or 'cv'.";
+    
+    if (textLower.includes('hello') || textLower.includes('hi ') || textLower.includes('hey') || textLower.includes('greetings')) {
+      aiResultText = `Greetings profile visitor! I am initialized to serve info strings regarding ${CONFIG_MOCKED_AGENT_PROMPT.name}. What sector shall we verify?`;
+    } else if (textLower.includes('skills') || textLower.includes('technologies') || textLower.includes('what can you do')) {
+      aiResultText = `Shahriyer's structural skill indexes cover: ${CONFIG_MOCKED_AGENT_PROMPT.skills.join(', ')}. He loves optimizing code pipelines and building local AI automation structures!`;
     } else if (textLower.includes('education') || textLower.includes('study') || textLower.includes('college')) {
       aiResultText = `Shahriyer is currently studying for his ${CONFIG_MOCKED_AGENT_PROMPT.education} in Bangladesh.`;
     } else if (textLower.includes('contact') || textLower.includes('email') || textLower.includes('hire')) {
       aiResultText = "You can easily click 'Email Me' in the hero box section or click his WhatsApp link to start collaborating right away!";
     }
 
+    // Drop tracking wave and mount final response
     msgBox.removeChild(typingIndicator);
     const agentMsgBubble = document.createElement('div');
     agentMsgBubble.className = 'chat-bubble agent';
@@ -1879,10 +1960,9 @@ async function handleAISendMessage(event) {
 /* LAUNCH INITIALIZATION */
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(typeEffect, 500);
-  initInteractiveStars();
-  initMagneticButtons();
+  initializeCelestialStarArrayMatrix();
 });
-</script>
 
+</script>
 </body>
 </html>
