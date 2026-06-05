@@ -6,6 +6,7 @@
 
 <title>Shahriyer Salman Swapno | Portfolio</title>
 
+<!-- FIXED: Corrected Google Fonts weights syntax from wght= to wght@ -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -183,7 +184,7 @@ nav a:hover{
   color:var(--primary);
 }
 
-/* FIXED MOBILE NAV HAMBURGER TRIGGER & TRANSFORMS */
+/* MOBILE NAV HAMBURGER TRIGGER & TRANSFORMS */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -202,9 +203,10 @@ nav a:hover{
   background-color: var(--text);
   border-radius: 3px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: center; /* Changed to center for precise cross alignment */
+  transform-origin: center; /* Set to center for clean cross rotation alignment */
 }
 
+/* Smooth cross animations */
 .menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
@@ -363,7 +365,6 @@ nav a:hover{
   animation: dynamicMorph 8s ease-in-out infinite alternate;
 }
 
-/* FIXED: Changed from custom invalid tag to a standard class on a div */
 .profile-hex-shield .inner-wrapper {
   display: block;
   width: 100%;
@@ -925,7 +926,6 @@ footer{
 
 .timeline-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
 
-/* FIXED: Added missing opening curly bracket { after the selector rule */
 .timeline-title { font-size: 0.95rem; font-weight: 600; color: #fff; }
 
 .timeline-meta { font-size: 0.85rem; color: var(--primary); font-weight: 500; }
@@ -1206,6 +1206,7 @@ footer{
 <li><a href="#education">Education</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+<!-- FIXED: Inserted the necessary nested spans inside the hamburger button for the cross function -->
 <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
   <span></span>
   <span></span>
@@ -1213,6 +1214,7 @@ footer{
 </button>
 </nav>
 
+<!-- MOBILE SLIDEOUT DRAWER -->
 <div class="mobile-nav-drawer" id="mobileDrawer">
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#skills" onclick="closeMobileNav()">Skills</a>
@@ -1221,6 +1223,7 @@ footer{
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
 </div>
 
+<!-- HERO AREA SECTOR -->
 <section class="hero" id="home">
   <div class="hero-glass-container">
     
@@ -1375,6 +1378,7 @@ footer{
 </div>
 </section>
 
+<!-- CALL TO ACTION AREA -->
 <div class="animate-on-scroll" style="text-align: center; margin-bottom: -20px; padding: 0 8%;">
   <p style="font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
     Want to Make Portfolios like this?
@@ -1411,6 +1415,7 @@ footer{
 </div>
 </section>
 
+<!-- CV MODAL STRUCTURE -->
 <div class="cv-modal-overlay" id="cvModal" onclick="toggleCVModal(false)">
   <div class="cv-container" onclick="event.stopPropagation()">
     
@@ -1529,6 +1534,7 @@ footer{
   </div>
 </div>
 
+<!-- AI INTERACTIVE FLOATING WIDGET ELEMENT STRUCTURE -->
 <div class="ai-fab-trigger" id="aiFabTrigger" onclick="toggleAIChatPanel()" aria-label="Open AI Assistant">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -1712,7 +1718,7 @@ function initInteractiveStars() {
 
 /* =======================================================
    SECURE DEBFUSCATION METHOD (BOT SPAM PROTECTION)
-================================================....... */
+======================================================= */
 function handleSecureEmailClick(event) {
   event.preventDefault();
   const user = "shahriyersalman";
@@ -1744,7 +1750,6 @@ function toggleMobileNav() {
   }
 }
 
-// Explicit close rule called when a link within the mobile layout is selected
 function closeMobileNav() {
   const toggleBtn = document.getElementById('menuToggle');
   const drawer = document.getElementById('mobileDrawer');
@@ -1812,7 +1817,6 @@ function toggleAIChatPanel() {
   if(panel) panel.classList.toggle('active');
 }
 
-// System Knowledge Injection Base Prompt for the Portfolio Agent
 const CONFIG_MOCKED_AGENT_PROMPT = {
   name: "Shahriyer Salman Swapno",
   education: "Diploma Student in Electrical Engineering at Jashore Polytechnic Institute",
@@ -1829,7 +1833,6 @@ async function handleAISendMessage(event) {
   const userText = inputEl.value.trim();
   if(!userText) return;
 
-  // Render user message text node
   const userMsgBubble = document.createElement('div');
   userMsgBubble.className = 'chat-bubble user';
   userMsgBubble.textContent = userText;
@@ -1837,7 +1840,6 @@ async function handleAISendMessage(event) {
   inputEl.value = '';
   msgBox.scrollTop = msgBox.scrollHeight;
 
-  // Append thinking layout wave animations
   const typingIndicator = document.createElement('div');
   typingIndicator.className = 'chat-bubble agent ai-typing-wave';
   typingIndicator.innerHTML = '<span></span><span></span><span></span>';
@@ -1845,7 +1847,6 @@ async function handleAISendMessage(event) {
   msgBox.scrollTop = msgBox.scrollHeight;
 
   try {
-    // High fidelity diagnostic response simulator logic for local portfolio testing
     await new Promise(resolve => setTimeout(resolve, 1200)); 
     let aiResultText = "That's a great question! Shahriyer is highly proficient in that domain. Let him know your project requirements directly using the Contact form or WhatsApp links above!";
 
@@ -1858,7 +1859,6 @@ async function handleAISendMessage(event) {
       aiResultText = "You can easily click 'Email Me' in the hero box section or click his WhatsApp link to start collaborating right away!";
     }
 
-    // Drop tracking wave and mount final response
     msgBox.removeChild(typingIndicator);
     const agentMsgBubble = document.createElement('div');
     agentMsgBubble.className = 'chat-bubble agent';
